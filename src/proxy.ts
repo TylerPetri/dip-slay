@@ -1,22 +1,35 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+import { locales, defaultLocale } from '@/i18n/locales';
+
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale,
+  localePrefix: 'always',
+  localeDetection: true,
+  // pathnames: { ... } if needed
+});
 
 const THEME_COOKIE = 'theme';
 
 export default function middleware(request: NextRequest) {
+  const intlResponse = intlMiddleware(request);
+
+  if (intlResponse.status !== 200 && intlResponse.status !== 304) {
+    return intlResponse;
+  }
+
   const theme = request.cookies.get(THEME_COOKIE)?.value || 'light';
 
-  // Optional: respect system if no cookie
-  // But for SSR consistency, default to cookie or 'light'
+  // Optional: set a custom header for theme
+  // intlResponse.headers.set('x-theme', theme);
 
-  const response = NextResponse.next();
-
-  // Pass theme to client via custom header or rewrite (but easiest: set on html via layout)
-  // Actually → best to handle in layout with cookie read
-
-  // For now: just ensure cookie exists; theme apply in layout
-  return response;
+  return intlResponse;
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)',
+    '/'
+  ]
 };

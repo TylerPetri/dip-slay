@@ -1,0 +1,10 @@
+{
+  "welcome": "Welcome to DipSlay!",
+  "hello_user": "Hello, {name}!",
+  "dips_count": "{count, plural, =0 {No dips yet} one {# dip} other {# dips}}",
+  "theme_toggle": "Switch to {mode} mode",
+  "leaderboard": {
+    "title": "Top Dip Creators",
+    "rank": "Rank #{rank}"
+  }
+}

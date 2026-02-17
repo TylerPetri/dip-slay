@@ -1,0 +1,10 @@
+{
+  "welcome": "Benvenuto su DipSlay!",
+  "hello_user": "Ciao, {name}!",
+  "dips_count": "{count, plural, =0 {Nessun dip ancora} uno {# dip} altro {# dip}}",
+  "theme_toggle": "Passa alla modalità {mode}",
+  "leaderboard": {
+    "title": "Migliori creatori di Dip",
+    "rank": "Posizione n. {rank}"
+  }
+}
