@@ -1,0 +1,37 @@
+$font-family-base:
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  "Open Sans",
+  sans-serif;
+$font-family-heading: "Poppins", system-ui, sans-serif;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 600;
+$font-weight-black: 800;
+
+:root {
+  --font-family-base: #{$font-family-base};
+  --font-family-heading: #{$font-family-heading};
+  --font-size-base: #{$font-size-base};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-bold: #{$font-weight-bold};
+  --font-weight-black: #{$font-weight-black};
+}

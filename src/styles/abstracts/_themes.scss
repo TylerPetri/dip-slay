@@ -1,0 +1,49 @@
+@use "colors" as *;
+@use "sass:color";
+
+$theme-light: (
+  bg-light: $color-bg-light,
+  bg-white: $color-bg-white,
+  bg-dark: $color-bg-dark,
+  text-primary: $color-text-primary,
+  text-secondary: $color-text-secondary,
+  text-light: $color-text-light,
+  border: $color-border,
+  border-dark: $color-border-dark,
+  card-bg: $color-bg-white,
+  input-bg: $color-bg-white,
+);
+
+$theme-dark: (
+  bg-light: #0f172a,
+  bg-white: #1e293b,
+  bg-dark: #f8fafc,
+  text-primary: #f1f5f9,
+  text-secondary: #94a3b8,
+  text-light: #cbd5e1,
+  border: #334155,
+  border-dark: #475569,
+  card-bg: #1e293b,
+  input-bg: #1e293b,
+);
+
+@mixin theme-vars($theme-map, $prefix: "") {
+  @each $key, $value in $theme-map {
+    --#{$prefix}#{$key}: #{$value};
+  }
+}
+
+:root {
+  @include theme-vars($theme-light);
+  --color-scheme: light;
+}
+
+[data-theme="dark"] {
+  @include theme-vars($theme-dark);
+
+  --color-primary: #{color.scale($color-primary, $lightness: 10%)};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+
+  --color-scheme: dark;
+}

@@ -1,0 +1,8 @@
+@use '../abstracts' as *;
+@use 'input' as *;
+
+.textarea {
+  @extend .input;
+  min-height: 120px;
+  resize: vertical;
+}

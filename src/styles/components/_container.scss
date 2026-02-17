@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+
+  &--narrow {
+    max-width: 800px;
+  }
+
+  &--wide {
+    max-width: 1400px;
+  }
+
+  &--fluid {
+    max-width: none;
+  }
+}
