@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode, forwardRef } from "react";
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: "default" | "narrow" | "wide" | "fluid";
+  variant?: "default" | "narrow" | "wide" | "fluid" | "textCenter";
   children: ReactNode;
 }
 
@@ -13,6 +13,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
       narrow: "container--narrow",
       wide: "container--wide",
       fluid: "container--fluid",
+      textCenter: "container--text-center",
     }[variant];
 
     return (

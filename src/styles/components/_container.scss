@@ -1,9 +1,9 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: var(--spacing-md) auto;
   padding: 0 var(--spacing-lg);
 
   &--narrow {
@@ -16,5 +16,9 @@
 
   &--fluid {
     max-width: none;
+  }
+
+  &--text-center {
+    text-align: center;
   }
 }

@@ -1,0 +1,136 @@
+@use '../abstracts' as *;
+
+.top-dips-carousel {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; // Firefox
+  padding: var(--spacing-lg) 0;
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome/Safari
+  }
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: 0 var(--spacing-lg);
+
+  @media (min-width: 1024px) {
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: 0;
+  }
+}
+
+.top-dip-card-wrapper {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  max-width: 420px;
+
+  @media (min-width: 640px) {
+    flex: 0 0 45%;
+  }
+
+  @media (min-width: 1024px) {
+    flex: 0 0 30%;
+    max-width: 380px;
+  }
+}
+
+.top-dip-card {
+  display: block;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.dip-image-container {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+
+  .dip-image {
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .top-dip-card:hover & {
+    .dip-image {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.dip-info {
+  padding: var(--spacing-md);
+}
+
+.dip-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dip-creator {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.dip-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+}
+
+.dip-votes {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+}
+
+.votes-count {
+  font-size: var(--font-size-base);
+}
+
+.slay-meter {
+  position: relative;
+  width: 120px;
+  height: 12px;
+  background: rgba(var(--color-accent), 0.15);
+  border-radius: var(--border-radius-pill);
+  overflow: hidden;
+
+  .slay-meter-bar {
+    height: 100%;
+    background: linear-gradient(to right, var(--color-accent), var(--color-accent-dark));
+    transition: width var(--transition-normal);
+  }
+
+  .slay-score {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    pointer-events: none;
+  }
+}

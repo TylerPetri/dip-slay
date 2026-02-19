@@ -6,5 +6,112 @@
   "leaderboard": {
     "title": "Top Dip Creators",
     "rank": "Rank #{rank}"
+  },
+  "Home": {
+    "hero": {
+      "title": "DipSlay – Where Dips Become Legends",
+      "subtitle": "Join the ultimate dip showdown. Create, share, vote, and climb the leaderboard to prove your recipe reigns supreme.",
+      "cta": {
+        "upload": "Upload Your Dip",
+        "leaderboard": "View Leaderboard"
+      }
+    },
+    "TopDips": {
+      "title": "Top Dips Right Now",
+      "guestPrompt": "Not seeing your masterpiece here? Show the world what you've got!",
+      "cta": {
+        "registerAndUpload": "Register & Upload Yours"
+      },
+      "votes": "votes"
+    },
+    "Tabs": {
+      "allRecipes": "All Recipes",
+      "login": "Login / Sign Up",
+      "cooks": "Cooks",
+      "leaderboard": "Leaderboard",
+      "placeholder": "Select a tab to explore..."
+    }
+  },
+  "Leaderboard": {
+    "title": "Leaderboard",
+    "subtitle": "Discover who's dominating the dip game — top recipes and creators ranked by votes and slay power.",
+    "loading": "Loading leaderboard rankings...",
+
+    "Tabs": {
+      "dips": "Top Dips",
+      "cooks": "Top Cooks"
+    },
+
+    "Dips": {
+      "title": "Top Dips Right Now",
+      "votes": "votes",
+      "loadMore": "Load More Dips"
+    },
+
+    "Cooks": {
+      "title": "Top Cooks This Season",
+      "dips": "dips created",
+      "votes": "total votes",
+      "slayScore": "Slay Score",
+      "loadMore": "Load More Cooks"
+    }
+  },
+  "Profile": {
+    "loadingActivity": "Loading activity...",
+    "loadingVoted": "Loading voted...",
+    "loadingDips": "Loading dips...",
+    "Activity": {
+      "empty": {
+        "title": "No activity yet",
+        "ownText": "Start creating, voting, or following to see your activity here!",
+        "otherText": "This cook hasn't been active recently."
+      },
+      "actions": {
+        "votedOn": "voted on {dip}",
+        "commentedOn": "commented on {dip}",
+        "uploaded": "uploaded {dip}",
+        "followed": "followed {user}",
+        "unknown": "did something cool"
+      }
+    },
+    "Dips": {
+      "empty": {
+        "title": "No dips yet",
+        "text": "This cook hasn't shared any recipes. Be the first to inspire them!",
+        "cta": {
+          "upload": "Upload a Dip"
+        }
+      },
+      "actions": {
+        "edit": "Edit"
+      }
+    },
+    "Header": {
+      "stats": {
+        "dips": "Dips Created",
+        "votes": "Total Votes",
+        "slayScore": "Slay Score",
+        "rank": "Rank"
+      },
+      "actions": {
+        "editProfile": "Edit Profile",
+        "uploadDip": "Upload New Dip",
+        "follow": "Follow",
+        "unfollow": "Unfollow",
+        "message": "Message"
+      }
+    },
+    "Tabs": {
+      "created": "Created Dips",
+      "voted": "Voted Dips",
+      "activity": "Activity"
+    },
+    "Voted": {
+      "empty": {
+        "title": "No votes yet",
+        "text": "This cook hasn't upvoted any dips. Once they do, you'll see them here!"
+      },
+      "votedOn": "Voted on {date}"
+    }
   }
 }

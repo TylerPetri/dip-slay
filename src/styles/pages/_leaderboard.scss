@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+.leaderboard-page {
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  padding-bottom: var(--spacing-3xl);
+}
+
+.leaderboard-hero {
+  padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+  background: linear-gradient(to bottom, rgba(var(--color-primary), 0.12), transparent);
+}
+
+.leaderboard-title {
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  font-weight: var(--font-weight-black);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.05;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaderboard-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.leaderboard-content {
+  padding: var(--spacing-2xl) 0;
+}
