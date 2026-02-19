@@ -1,14 +1,37 @@
-import { ButtonHTMLAttributes, ReactNode, forwardRef } from "react";
+import { 
+  forwardRef, 
+  ReactNode, 
+  ButtonHTMLAttributes, 
+  AnchorHTMLAttributes 
+} from "react";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonBaseProps {
   variant?: "primary" | "secondary" | "outline" | "success" | "ghost";
   size?: "small" | "default" | "large";
   pill?: boolean;
   children: ReactNode;
+  className?: string;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+interface ButtonAsButtonProps extends ButtonBaseProps {
+  link?: false | undefined;
+}
+
+interface ButtonAsLinkProps extends ButtonBaseProps {
+  link: true;
+  href: string;
+}
+
+type ButtonProps = 
+  | (ButtonAsButtonProps & ButtonHTMLAttributes<HTMLButtonElement>)
+  | (ButtonAsLinkProps & AnchorHTMLAttributes<HTMLAnchorElement>);
+
+type ButtonRef = 
+  | HTMLButtonElement 
+  | HTMLAnchorElement;
+
+const Button = forwardRef<ButtonRef, ButtonProps>(
   (
     {
       className,
@@ -16,6 +39,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = "default",
       pill = false,
       children,
+      link = false,
       ...props
     },
     ref
@@ -27,7 +51,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       secondary: "btn--secondary",
       outline: "btn--outline",
       success: "btn--success",
-      ghost: "", // TODO: add ghost style if needed
+      ghost: "",
     }[variant];
 
     const sizeClasses = {
@@ -38,17 +62,36 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const pillClass = pill ? "btn--pill" : "";
 
+    const combinedClasses = cn(
+      baseClasses,
+      variantClasses,
+      sizeClasses,
+      pillClass,
+      className
+    );
+
+    if (link) {
+      const { href, ...anchorProps } = props as ButtonAsLinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+      return (
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          href={href}
+          className={combinedClasses}
+          {...anchorProps}
+        >
+          {children}
+        </a>
+      );
+    }
+
+    const { ...buttonProps } = props as ButtonAsButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
+
     return (
       <button
-        ref={ref}
-        className={cn(
-          baseClasses,
-          variantClasses,
-          sizeClasses,
-          pillClass,
-          className
-        )}
-        {...props}
+        ref={ref as React.Ref<HTMLButtonElement>}
+        className={combinedClasses}
+        {...buttonProps}
       >
         {children}
       </button>

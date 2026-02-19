@@ -1,0 +1,44 @@
+.profile-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.stat-box {
+  text-align: center;
+  min-width: 110px;
+  padding: var(--spacing-md);
+  background: rgba(white, 0.15);
+  border-radius: var(--border-radius-md);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(white, 0.2);
+}
+
+.stat-value {
+  display: block;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: white;
+  margin-bottom: var(--spacing-xxs);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: rgba(white, 0.85);
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.auth-social-btn svg,
+.social-icon {
+  width: 22px;
+  height: 22px;
+}

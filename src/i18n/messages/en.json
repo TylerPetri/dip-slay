@@ -7,6 +7,125 @@
     "title": "Top Dip Creators",
     "rank": "Rank #{rank}"
   },
+  "Auth": {
+    "Modal": {
+      "close": "Close",
+      "tabs": {
+        "login": "Log In",
+        "signup": "Sign Up"
+      },
+      "login": {
+        "x": "Continue with X",
+        "google": "Continue with Google",
+        "title": "Welcome Back",
+        "subtitle": "Log in to continue slaying the leaderboard and sharing your dips.",
+        "submit": "Log In",
+        "switchPrompt": "Don't have an account?",
+        "success": "Welcome back! You're now logged in and ready to slay 🔥"
+      },
+      "signup": {
+        "x": "Sign up with X",
+        "google": "Sign up with Google",
+        "title": "Join the Dip Slayers",
+        "subtitle": "Create an account in seconds and start uploading your killer dips.",
+        "submit": "Create Account",
+        "switchPrompt": "Already have an account?",
+        "success": "Account created! Let's start uploading epic dips 🔥"
+      },
+      "form": {
+        "email": "Email",
+        "emailPlaceholder": "you@example.com",
+        "password": "Password",
+        "passwordPlaceholder": "••••••••",
+        "confirmPassword": "Confirm Password",
+        "confirmPlaceholder": "••••••••",
+        "submitting": "Processing...",
+        "errors": {
+          "emailRequired": "Email is required",
+          "emailInvalid": "Please enter a valid email address",
+          "passwordRequired": "Password is required",
+          "passwordShort": "Password must be at least 6 characters",
+          "confirmRequired": "Please confirm your password",
+          "confirmMismatch": "Passwords do not match",
+          "submitFailed": "Something went wrong. Please try again."
+        }
+      },
+      "or": "or",
+      "legal": "By continuing, you agree to our",
+      "terms": "Terms of Service",
+      "and": "and",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "Dips": {
+    "Detail": {
+      "votes": "votes",
+      "slayScore": "Slay Score",
+      "difficulty": "Difficulty",
+      "time": "Time",
+      "ingredients": "Ingredients",
+      "instructions": "Instructions",
+      "viewAllDips": "View All Dips from this Cook",
+      "difficultyLevels": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "share": {
+        "title": "Share this Dip",
+        "x": "Share on X",
+        "copyLink": "Copy Link",
+        "copied": "Copied!"
+      },
+      "print": "Print Recipe",
+      "save": "Save to Favorites",
+      "saved": "Saved",
+      "unsave": "Remove from Favorites",
+
+      "moreFromCook": "More from {handle}",
+      "noMoreDips": "No additional dips from this cook yet."
+    },
+    "New": {
+      "title": "Create a New Dip",
+      "subtitle": "Share your best recipe with the community and start climbing the leaderboard!",
+
+      "Form": {
+        "labels": {
+          "image": "Dip Photo",
+          "title": "Dip Title",
+          "difficulty": "Difficulty Level",
+          "ingredients": "Ingredients",
+          "instructions": "Instructions"
+        },
+        "placeholders": {
+          "title": "e.g. Spicy Ghost Pepper Queso",
+          "ingredients": "List ingredients (one per line or comma-separated)",
+          "instructions": "Step-by-step instructions..."
+        },
+        "difficulty": {
+          "easy": "Easy",
+          "medium": "Medium",
+          "hard": "Hard"
+        },
+        "uploadPrompt": "Click or drag to upload dip photo",
+        "errors": {
+          "titleRequired": "Title is required",
+          "descriptionRequired": "Description is required",
+          "ingredientsRequired": "Ingredients are required",
+          "instructionsRequired": "Instructions are required",
+          "imageRequired": "Please upload a photo of your dip",
+          "submitFailed": "Something went wrong. Please try again."
+        },
+        "success": {
+          "message": "Dip uploaded successfully! Check it out on the leaderboard."
+        },
+        "buttons": {
+          "submitting": "Uploading...",
+          "submit": "Share Your Dip"
+        }
+      }
+    }
+  },
   "Home": {
     "hero": {
       "title": "DipSlay – Where Dips Become Legends",

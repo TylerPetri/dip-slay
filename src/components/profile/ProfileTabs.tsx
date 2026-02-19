@@ -1,32 +1,43 @@
-'use client';
+"use client";
 
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface ProfileTabsProps {
-  activeTab: 'created' | 'voted' | 'activity'
-  onTabChange: (tabs: 'created' | 'voted' | 'activity') => void
+  activeTab: "created" | "voted" | "activity";
+  onTabChange: (tabs: "created" | "voted" | "activity") => void;
 }
 
-export default function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps) {
-  const t = useTranslations('Profile.Tabs');
+export default function ProfileTabs({
+  activeTab,
+  onTabChange,
+}: ProfileTabsProps) {
+  const t = useTranslations("Profile.Tabs");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
-  // Sync tab change to URL query param (no reload)
   const handleTabChange = (newTab: ProfileTabsProps["activeTab"]) => {
     onTabChange(newTab);
+    const nextQuery = {
+      ...Object.fromEntries(searchParams),
+      tab: newTab,
+    };
 
-    const newSearchParams = new URLSearchParams(searchParams.toString());
-    newSearchParams.set('tab', newTab);
-    router.replace(`${pathname}?${newSearchParams.toString()}`, { scroll: false });
+    router.replace(
+      {
+        pathname,
+        query: nextQuery,
+      },
+      { scroll: false },
+    );
   };
 
   const tabs = [
-    { id: 'created', label: t('created') },
-    { id: 'voted',   label: t('voted') },
-    { id: 'activity', label: t('activity') },
+    { id: "created", label: t("created") },
+    { id: "voted", label: t("voted") },
+    { id: "activity", label: t("activity") },
   ];
 
   return (
@@ -38,9 +49,11 @@ export default function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps
           return (
             <button
               key={tab.id}
-              onClick={() => handleTabChange(tab.id as ProfileTabsProps["activeTab"])}
-              className={`tab-button ${isActive ? 'tab-button--active' : ''}`}
-              aria-current={isActive ? 'page' : undefined}
+              onClick={() =>
+                handleTabChange(tab.id as ProfileTabsProps["activeTab"])
+              }
+              className={`tab-button ${isActive ? "tab-button--active" : ""}`}
+              aria-current={isActive ? "page" : undefined}
             >
               {tab.label}
             </button>

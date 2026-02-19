@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { locales, isValidLocale } from "@/i18n/locales";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -61,6 +62,31 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                borderRadius: "12px",
+                background: "#333",
+                color: "#fff",
+                padding: "16px",
+                fontSize: "16px",
+              },
+              success: {
+                style: {
+                  background: "var(--color-success)",
+                  color: "white",
+                },
+              },
+              error: {
+                style: {
+                  background: "var(--color-danger)",
+                  color: "white",
+                },
+              },
+            }}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,4 +1,4 @@
-import  createMiddleware  from 'next-intl/middleware';
+import createMiddleware from 'next-intl/middleware';
 import type { Locale } from './locales';
 import { locales, defaultLocale } from './locales';
 
@@ -13,29 +13,52 @@ export const routing = {
       en: '/leaderboard',
       fr: '/classement',
       es: '/clasificacion',
-    },
+      de: '',
+      it: ''
+    } satisfies Record<Locale, string>,
+
+    '/login': {
+      en: '/login',
+      fr: '/connexion',
+      es: '/iniciar-sesion',
+      de: '',
+      it: ''
+    } satisfies Record<Locale, string>,
+
     '/profile': {
       en: '/profile',
       fr: '/profil',
-    },
+      es: '/perfil',
+      de: '',
+      it: ''
+    } satisfies Record<Locale, string>,
+
+    '/cooks': {
+      en: '/cooks',
+      fr: '/cuisiniers',
+      es: '/cocineros',
+      de: '',
+      it: ''
+    } satisfies Record<Locale, string>,
+
+    '/dips': {
+      en: '/dips',
+      fr: '/dips',
+      es: '/salsas',
+      de: '',
+      it: ''
+    } satisfies Record<Locale, string>,
+
+    '/dips/new': {
+      en: '/dips/new',
+      fr: '/dips/nouveau',
+      es: '/dips/nuevo',
+      de: '',
+      it: ''
+    } satisfies Record<Locale, string>,
   },
-
-  // Optional: custom locale cookie name (if you want to persist user choice)
-  // localeCookie: 'NEXT_LOCALE',
-
-  // Optional: domains (for international domains like fr.example.com)
-  // domains: [
-  //   { domain: 'example.fr', defaultLocale: 'fr' },
-  //   { domain: 'example.es', defaultLocale: 'es' },
-  // ],
-
-  // Custom detection logic (rarely needed, but useful for A/B testing or geo)
-  // localeDetection: (request) => {
-  //   // e.g., read from cookie first, then header, then fallback
-  //   return request.cookies.get('user-locale')?.value ?? request.headers.get('accept-language')?.split(',')[0] ?? defaultLocale;
-  // },
 } satisfies Parameters<typeof createMiddleware>[0];
 
 export const intlMiddleware = createMiddleware(routing);
 
-export type Pathnames = typeof routing.pathnames;
+export type AppPathnames = typeof routing.pathnames;
