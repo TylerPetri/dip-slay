@@ -43,6 +43,7 @@
         "errors": {
           "emailRequired": "Email is required",
           "emailInvalid": "Please enter a valid email address",
+          "invalidCredentials": "Invalid email or password",
           "passwordRequired": "Password is required",
           "passwordShort": "Password must be at least 6 characters",
           "confirmRequired": "Please confirm your password",
@@ -114,10 +115,12 @@
           "ingredientsRequired": "Ingredients are required",
           "instructionsRequired": "Instructions are required",
           "imageRequired": "Please upload a photo of your dip",
+          "imageInvalidType": "Please upload an image file",
+          "imageTooLarge": "Image must be less than 6MB",
           "submitFailed": "Something went wrong. Please try again."
         },
         "success": {
-          "message": "Dip uploaded successfully! Check it out on the leaderboard."
+          "message": "Your dip has been uploaded! Check it out on the leaderboard."
         },
         "buttons": {
           "submitting": "Uploading...",

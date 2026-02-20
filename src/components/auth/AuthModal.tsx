@@ -9,6 +9,9 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "@/i18n/navigation";
 import toast from "react-hot-toast";
+import { useAuth } from "@/hooks/useAuth";
+import { AuthError } from "@supabase/supabase-js";
+import { supabase } from "@/lib/supabase-client";
 
 type AuthTab = "login" | "signup";
 
@@ -24,13 +27,17 @@ export default function AuthModal({
   signup = false,
 }: AuthModalProps) {
   const t = useTranslations("Auth.Modal");
-  const [activeTab, setActiveTab] = useState<AuthTab>("login");
   const router = useRouter();
+  const { user, loading } = useAuth();
 
+  const [activeTab, setActiveTab] = useState<AuthTab>("login");
+
+  // Form state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // Validation errors
   const [errors, setErrors] = useState<{
     email?: string;
     password?: string;
@@ -43,9 +50,22 @@ export default function AuthModal({
     if (signup) {
       setActiveTab("signup");
     } else {
-      setActiveTab("login")
+      setActiveTab("login");
     }
-  }, [open, signup]);
+  }, [signup, open]);
+
+  useEffect(() => {
+    if (user && open && !loading) {
+      toast.success(
+        activeTab === "login" ? t("login.success") : t("signup.success"),
+        { duration: 5000, icon: "🔥" },
+      );
+
+      onOpenChange(false);
+
+      router.push("/dips/new");
+    }
+  }, [signup, user, open, loading, router, t, onOpenChange, activeTab]);
 
   const switchTab = (tab: AuthTab) => {
     setActiveTab(tab);
@@ -109,22 +129,39 @@ export default function AuthModal({
     setIsSubmitting(true);
 
     try {
-      // TODO: Real auth call
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      let result;
 
-      toast.success(
-        activeTab === "login" ? t("login.success") : t("signup.success"),
-        {
-          duration: 5000,
-          icon: "🔥",
-        },
-      );
+      if (activeTab === "login") {
+        result = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+      } else {
+        result = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/dips/new`,
+          },
+        });
+      }
 
-      onOpenChange(false);
+      if (result.error) {
+        throw result.error;
+      }
+    } catch (err: unknown) {
+      let message = t("form.errors.submitFailed");
 
-      router.push("/dips/new");
-    } catch (err) {
-      toast.error(t("form.errors.submitFailed"));
+      if (err instanceof AuthError) {
+        message = err.message;
+        if (err.code === "invalid_credentials") {
+          message = t("form.errors.invalidCredentials");
+        }
+      } else if (err instanceof Error) {
+        message = err.message;
+      }
+
+      toast.error(message);
     } finally {
       setIsSubmitting(false);
     }

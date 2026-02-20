@@ -64,6 +64,9 @@ export default async function LocaleLayout({ children, params }: Props) {
           {children}
           <Toaster
             position="top-center"
+            containerStyle={{
+              zIndex: 99999,
+            }}
             toastOptions={{
               duration: 4000,
               style: {
@@ -72,17 +75,20 @@ export default async function LocaleLayout({ children, params }: Props) {
                 color: "#fff",
                 padding: "16px",
                 fontSize: "16px",
+                zIndex: 99999,
               },
               success: {
                 style: {
                   background: "var(--color-success)",
                   color: "white",
+                  zIndex: 99999,
                 },
               },
               error: {
                 style: {
                   background: "var(--color-danger)",
                   color: "white",
+                  zIndex: 99999,
                 },
               },
             }}
