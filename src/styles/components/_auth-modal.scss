@@ -44,7 +44,6 @@
   border: none;
   color: var(--color-primary);
   cursor: pointer;
-  padding: var(--spacing-sm);
   border-radius: 50%;
   transition: all var(--transition-fast);
 
@@ -101,7 +100,7 @@
 }
 
 .auth-content {
-  padding: 0 var(--spacing-md);
+  padding:var(--spacing-lg) var(--spacing-md);
 }
 
 .modal-title {

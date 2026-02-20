@@ -2,7 +2,7 @@
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import { useTranslations } from "next-intl";
@@ -15,9 +15,14 @@ type AuthTab = "login" | "signup";
 interface AuthModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  signup?: boolean;
 }
 
-export default function AuthModal({ open, onOpenChange }: AuthModalProps) {
+export default function AuthModal({
+  open,
+  onOpenChange,
+  signup = false,
+}: AuthModalProps) {
   const t = useTranslations("Auth.Modal");
   const [activeTab, setActiveTab] = useState<AuthTab>("login");
   const router = useRouter();
@@ -33,6 +38,14 @@ export default function AuthModal({ open, onOpenChange }: AuthModalProps) {
   }>({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (signup) {
+      setActiveTab("signup");
+    } else {
+      setActiveTab("login")
+    }
+  }, [open, signup]);
 
   const switchTab = (tab: AuthTab) => {
     setActiveTab(tab);
@@ -129,7 +142,7 @@ export default function AuthModal({ open, onOpenChange }: AuthModalProps) {
             </button>
           </Dialog.Close>
 
-          <div className="auth-tabs">
+          {/* <div className="auth-tabs">
             <button
               className={`tab ${activeTab === "login" ? "active" : ""}`}
               onClick={() => switchTab("login")}
@@ -143,7 +156,7 @@ export default function AuthModal({ open, onOpenChange }: AuthModalProps) {
               {t("tabs.signup")}
             </button>
             <div className="tab-indicator" data-active={activeTab} />
-          </div>
+          </div> */}
 
           <form onSubmit={handleSubmit} className="auth-content">
             <Dialog.Title className="modal-title">

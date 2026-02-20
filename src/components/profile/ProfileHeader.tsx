@@ -15,14 +15,12 @@ interface ProfileHeaderProps {
     totalVotes: number;
     slayScore: number;
     rank?: number;
-    isOwnProfile?: boolean; // to show Edit / Upload buttons
-    isFollowing?: boolean;  // for follow/unfollow state
+    isOwnProfile?: boolean;
+    isFollowing?: boolean;
   };
 }
 
-export default function ProfileHeader({
-  user,
-}: ProfileHeaderProps) {
+export default function ProfileHeader({ user }: ProfileHeaderProps) {
   const t = useTranslations('Profile.Header');
 
   const displayName = user.displayName || user.handle;
@@ -32,7 +30,6 @@ export default function ProfileHeader({
       <div className="profile-hero-bg" />
 
       <div className="profile-container">
-        {/* Avatar */}
         <div className="profile-avatar-wrapper">
           {user.avatarUrl ? (
             <Image
@@ -55,12 +52,18 @@ export default function ProfileHeader({
         <p className="profile-handle">{user.handle}</p>
 
         {/* Bio */}
-        {user.bio && (
-          <p className="profile-bio">{user.bio}</p>
-        )}
+        {user.bio && <p className="profile-bio">{user.bio}</p>}
 
-        {/* Stats row */}
         <div className="profile-stats">
+          {user.rank && (
+            <div className={`stat-box stat-rank stat-rank-${user.rank}`}>
+              <span className="stat-value">
+                {user.rank <= 3 ? ['🥇', '🥈', '🥉'][user.rank - 1] : `#${user.rank}`}
+              </span>
+              <span className="stat-label">{t('stats.rank')}</span>
+            </div>
+          )}
+
           <div className="stat-box">
             <span className="stat-value">{user.totalDips}</span>
             <span className="stat-label">{t('stats.dips')}</span>
@@ -71,20 +74,18 @@ export default function ProfileHeader({
             <span className="stat-label">{t('stats.votes')}</span>
           </div>
 
-          <div className="stat-box">
-            <span className="stat-value">{user.slayScore}%</span>
+          <div className="stat-box stat-slay">
+            <div className="slay-progress">
+              <div
+                className="slay-fill"
+                style={{ width: `${user.slayScore}%` }}
+              />
+              <span className="slay-score">{user.slayScore}%</span>
+            </div>
             <span className="stat-label">{t('stats.slayScore')}</span>
           </div>
-
-          {user.rank && (
-            <div className="stat-box">
-              <span className="stat-value">#{user.rank}</span>
-              <span className="stat-label">{t('stats.rank')}</span>
-            </div>
-          )}
         </div>
 
-        {/* Action buttons */}
         <div className="profile-actions">
           {user.isOwnProfile ? (
             <>
@@ -98,12 +99,11 @@ export default function ProfileHeader({
           ) : (
             <>
               <Button
-                variant={user.isFollowing ? "outline" : "primary"}
+                variant={user.isFollowing ? 'outline' : 'primary'}
                 size="large"
               >
                 {user.isFollowing ? t('actions.unfollow') : t('actions.follow')}
               </Button>
-
               <Button variant="outline" size="large">
                 {t('actions.message')}
               </Button>

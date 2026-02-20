@@ -1,18 +1,18 @@
 import { getTranslations } from "next-intl/server";
 import TopDipsShowcase from "@/components/home/TopDipsShowcase";
 import TabsNavigation from "@/components/home/TabsNavigation";
-import Link from "next/link";
 import { Suspense } from "react";
 import { HeroSectionButtons } from "@/components/home/HeroSectionButtons";
 import Container from "@/components/ui/Container";
+import UploadYoursPrompt from "@/components/home/UploadYoursPrompt";
 
 export default async function HomePage() {
   const t = await getTranslations("Home");
 
   const heroTranslations = {
     upload: t("hero.cta.upload"),
-    leaderboard: t("hero.cta.leaderboard")
-  }
+    leaderboard: t("hero.cta.leaderboard"),
+  };
 
   return (
     <main className="min-h-screen bg-bg-light">
@@ -21,7 +21,7 @@ export default async function HomePage() {
           <h1 className="hero-title">{t("hero.title")}</h1>
           <p className="hero-subtitle">{t("hero.subtitle")}</p>
 
-          <HeroSectionButtons heroTranslations={heroTranslations}/>
+          <HeroSectionButtons heroTranslations={heroTranslations} />
         </div>
       </section>
 
@@ -37,16 +37,7 @@ export default async function HomePage() {
             <TopDipsShowcase />
           </Suspense>
 
-          {/* "Upload yours" prompt – shown to guests */}
-          {/* For now using client-side check; later replace with real auth */}
-          <div className="guest-prompt">
-            <p className="text-text-secondary mb-4">
-              {t("TopDips.guestPrompt")}
-            </p>
-            <Link href="/register" className="btn btn--primary">
-              {t("TopDips.cta.registerAndUpload")}
-            </Link>
-          </div>
+          <UploadYoursPrompt />
         </Container>
       </section>
 
