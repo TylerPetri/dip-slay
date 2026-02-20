@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Button from "../ui/Button";
+import SlayMeter from "../ui/SlayMeter";
 
 interface DipEntry {
   rank: number;
@@ -95,13 +96,7 @@ export default function TopDipsLeaderboard() {
                     <span className="votes-label"> {t("votes")}</span>
                   </div>
 
-                  <div className="slay-meter">
-                    <div
-                      className="slay-meter-fill"
-                      style={{ width: `${dip.slayScore}%` }}
-                    />
-                    <span className="slay-score">{dip.slayScore}%</span>
-                  </div>
+                  <SlayMeter slayScore={dip.slayScore}/>
                 </div>
               </div>
             </div>

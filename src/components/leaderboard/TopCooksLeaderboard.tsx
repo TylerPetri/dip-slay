@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Button from '../ui/Button';
+import SlayMeter from '../ui/SlayMeter';
 
 interface CookEntry {
   rank: number;
@@ -99,13 +100,7 @@ export default function TopCooksLeaderboard() {
 
                 <div className="stat-item">
                   <span className="stat-label">{t('slayScore')}</span>
-                  <div className="slay-meter">
-                    <div
-                      className="slay-meter-fill"
-                      style={{ width: `${cook.slayScore}%` }}
-                    />
-                    <span className="slay-score">{cook.slayScore}%</span>
-                  </div>
+                  <SlayMeter slayScore={cook.slayScore}/>
                 </div>
               </div>
             </div>

@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Button from '@/components/ui/Button';
-import { useTranslations } from 'next-intl';
-import { User } from 'lucide-react';
+import Image from "next/image";
+import Button from "@/components/ui/Button";
+import { useTranslations } from "next-intl";
+import { User } from "lucide-react";
+import SlayMeter from "../ui/SlayMeter";
 
 interface ProfileHeaderProps {
   user: {
@@ -21,7 +22,7 @@ interface ProfileHeaderProps {
 }
 
 export default function ProfileHeader({ user }: ProfileHeaderProps) {
-  const t = useTranslations('Profile.Header');
+  const t = useTranslations("Profile.Header");
 
   const displayName = user.displayName || user.handle;
 
@@ -47,42 +48,38 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
           )}
         </div>
 
-        {/* Name & Handle */}
         <h1 className="profile-name">{displayName}</h1>
         <p className="profile-handle">{user.handle}</p>
 
-        {/* Bio */}
         {user.bio && <p className="profile-bio">{user.bio}</p>}
 
         <div className="profile-stats">
           {user.rank && (
             <div className={`stat-box stat-rank stat-rank-${user.rank}`}>
               <span className="stat-value">
-                {user.rank <= 3 ? ['🥇', '🥈', '🥉'][user.rank - 1] : `#${user.rank}`}
+                {user.rank <= 3
+                  ? ["🥇", "🥈", "🥉"][user.rank - 1]
+                  : `#${user.rank}`}
               </span>
-              <span className="stat-label">{t('stats.rank')}</span>
+              <span className="stat-label">{t("stats.rank")}</span>
             </div>
           )}
 
           <div className="stat-box">
             <span className="stat-value">{user.totalDips}</span>
-            <span className="stat-label">{t('stats.dips')}</span>
+            <span className="stat-label">{t("stats.dips")}</span>
           </div>
 
           <div className="stat-box">
-            <span className="stat-value">{user.totalVotes.toLocaleString()}</span>
-            <span className="stat-label">{t('stats.votes')}</span>
+            <span className="stat-value">
+              {user.totalVotes.toLocaleString()}
+            </span>
+            <span className="stat-label">{t("stats.votes")}</span>
           </div>
 
           <div className="stat-box stat-slay">
-            <div className="slay-progress">
-              <div
-                className="slay-fill"
-                style={{ width: `${user.slayScore}%` }}
-              />
-              <span className="slay-score">{user.slayScore}%</span>
-            </div>
-            <span className="stat-label">{t('stats.slayScore')}</span>
+            <SlayMeter slayScore={user.slayScore} />
+            <span className="stat-label">{t("stats.slayScore")}</span>
           </div>
         </div>
 
@@ -90,22 +87,22 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
           {user.isOwnProfile ? (
             <>
               <Button variant="primary" size="large">
-                {t('actions.editProfile')}
+                {t("actions.editProfile")}
               </Button>
               <Button variant="outline" size="large">
-                {t('actions.uploadDip')}
+                {t("actions.uploadDip")}
               </Button>
             </>
           ) : (
             <>
               <Button
-                variant={user.isFollowing ? 'outline' : 'primary'}
+                variant={user.isFollowing ? "outline" : "primary"}
                 size="large"
               >
-                {user.isFollowing ? t('actions.unfollow') : t('actions.follow')}
+                {user.isFollowing ? t("actions.unfollow") : t("actions.follow")}
               </Button>
               <Button variant="outline" size="large">
-                {t('actions.message')}
+                {t("actions.message")}
               </Button>
             </>
           )}

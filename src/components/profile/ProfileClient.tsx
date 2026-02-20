@@ -186,7 +186,6 @@ export default function ProfileClient({ translations }: ProfileClientProps) {
 
   return (
     <>
-      {/* Tabs */}
       <ProfileTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
       <section className="profile-content">
