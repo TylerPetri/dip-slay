@@ -1,0 +1,78 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/layouts/container' as container;
+@use '@/styles/layouts/section' as section;
+@use '@/styles/components/button' as btn;
+@use '@/styles/utilities/flex-helpers' as flex;
+
+.section {
+  @include section.section-base;
+  padding: clamp(6rem, 15vw, 10rem) 2rem;
+  background: linear-gradient(to bottom, var(--slayer-700), var(--slayer-900));
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(var(--slayer-accent), 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.container {
+  @include container.container-base;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: var(--font-black);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--slayer-accent), var(--watcher-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.subheading {
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  opacity: 0.95;
+}
+
+.ctaGroup {
+  @include flex.flex(row, wrap, center, center);
+  gap: var(--space-6);
+  margin-bottom: 2rem;
+
+  @include until(md) {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+}
+
+.mainBtn {
+  @include btn.button-primary;
+  @include btn.button-large;
+  background: var(--slayer-accent);
+  box-shadow: 0 0 40px rgba(var(--slayer-accent), 0.6);
+}
+
+.secondaryBtn {
+  @include btn.button-outline;
+  @include btn.button-large;
+  border-color: var(--watcher-accent);
+  color: var(--watcher-accent);
+}
+
+.legal {
+  font-size: var(--type-sm);
+  opacity: 0.75;
+  margin-top: 2rem;
+}

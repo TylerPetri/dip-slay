@@ -1,0 +1,41 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/components/card' as card;
+
+@mixin step-card-base {
+  @include card.card-base;
+
+  position: relative;
+  overflow: hidden;
+
+  &__step-number {
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-5);
+    font-size: 1.5rem;
+    font-weight: var(--font-black);
+    color: var(--color-accent);
+    opacity: 0.8;
+    text-shadow: 0 0 12px var(--color-glow);
+  }
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: var(--space-6);
+    display: block;
+    line-height: 1;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+  }
+
+  &__title {
+    font-size: var(--type-title);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-4);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  &__description {
+    font-size: var(--type-body);
+    line-height: var(--line-relaxed);
+    opacity: 0.92;
+  }
+}

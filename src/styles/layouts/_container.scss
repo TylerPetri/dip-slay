@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+@mixin container-base {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+@mixin container-narrow {
+  @include container-base;
+  max-width: 900px;
+}
+
+@mixin container-wide {
+  @include container-base;
+  max-width: 1600px;
+}
+
+@mixin container-full {
+  @include container-base;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@mixin container-centered {
+  @include container-base;
+  text-align: center;
+}

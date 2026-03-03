@@ -1,0 +1,64 @@
+// ────────────────────────────────────────────────
+// Dip-Slay color palette – single source of truth
+// Use $slayer-accent in calculations, var(--slayer-accent) in components
+// ────────────────────────────────────────────────
+
+// Slayer (intense, fiery, aggressive)
+$slayer-950: #080202;
+$slayer-900: #0f0505;
+$slayer-800: #1f0a0a;
+$slayer-700: #3a0f0f;
+$slayer-600: #5c1616;
+$slayer-accent: #e11d48;
+$slayer-glow: rgba($slayer-accent, 0.45);
+
+// Watcher (neon, social, crowd energy)
+$watcher-950: #010307;
+$watcher-900: #02070f;
+$watcher-800: #041220;
+$watcher-700: #08243f;
+$watcher-600: #0c355c;
+$watcher-accent: #22d3ee;
+$watcher-glow: rgba($watcher-accent, 0.50);
+
+// Neutrals (high contrast, accessible)
+$neutral-50:  #f9fafb;
+$neutral-100: #f3f4f6;
+$neutral-200: #e5e7eb;
+$neutral-300: #d1d5db;
+$neutral-400: #9ca3af;
+$neutral-500: #6b7280;
+$neutral-600: #4b5563;
+$neutral-700: #374151;
+$neutral-800: #1f2937;
+$neutral-900: #111827;
+
+// Semantic
+$success:   #10b981;
+$warning:   #f59e0b;
+$error:     #ef4444;
+$info:      #3b82f6;
+
+// Output runtime variables
+:root {
+  --slayer-accent: #{$slayer-accent};
+  --watcher-accent: #{$watcher-accent};
+  --slayer-glow: #{$slayer-glow};
+  --watcher-glow: #{$watcher-glow};
+
+  --neutral-50:  #{$neutral-50};
+  --neutral-100: #{$neutral-100};
+  --neutral-200: #{$neutral-200};
+  --neutral-300: #{$neutral-300};
+  --neutral-400: #{$neutral-400};
+  --neutral-500: #{$neutral-500};
+  --neutral-600: #{$neutral-600};
+  --neutral-700: #{$neutral-700};
+  --neutral-800: #{$neutral-800};
+  --neutral-900: #{$neutral-900};
+
+  --color-success: #{$success};
+  --color-warning: #{$warning};
+  --color-error:   #{$error};
+  --color-info:    #{$info};
+}

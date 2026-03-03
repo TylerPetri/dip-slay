@@ -1,0 +1,64 @@
+// ────────────────────────────────────────────────
+// Spacing scale + semantic values
+// Use $space-lg in calculations, var(--space-lg) in components
+// Base unit = 4px (0.25rem)
+// ────────────────────────────────────────────────
+
+$base-unit: 0.25rem;
+
+$space-0:   0;
+$space-px:  1px;
+$space-05:  $base-unit * 0.5;   // 2px
+$space-xs:  $base-unit;         // 4px
+$space-sm:  $base-unit * 2;     // 8px
+$space-md:  $base-unit * 3;     // 12px
+$space-lg:  $base-unit * 4;     // 16px
+$space-xl:  $base-unit * 6;     // 24px
+$space-2xl: $base-unit * 8;     // 32px
+$space-3xl: $base-unit * 12;    // 48px
+$space-4xl: $base-unit * 16;    // 64px
+$space-5xl: $base-unit * 20;    // 80px
+$space-6xl: $base-unit * 24;    // 96px
+
+// Semantic
+$gap-inline:   $space-xl;
+$gap-block:    $space-2xl;
+$gap-grid:     $space-2xl;
+$padding-page: clamp($space-2xl, 8vw, $space-5xl);
+$padding-card: $space-2xl;
+$padding-hero: clamp($space-3xl, 10vw, $space-6xl);
+
+$radius-sm:    $space-sm;
+$radius-md:    $space-lg;
+$radius-lg:    $space-xl;
+$radius-xl:    $space-2xl;
+$radius-pill:  9999px;
+
+// CSS vars
+:root {
+  --space-0:   #{$space-0};
+  --space-05:  #{$space-05};
+  --space-xs:  #{$space-xs};
+  --space-sm:  #{$space-sm};
+  --space-md:  #{$space-md};
+  --space-lg:  #{$space-lg};
+  --space-xl:  #{$space-xl};
+  --space-2xl: #{$space-2xl};
+  --space-3xl: #{$space-3xl};
+  --space-4xl: #{$space-4xl};
+  --space-5xl: #{$space-5xl};
+  --space-6xl: #{$space-6xl};
+
+  --gap-inline:  #{$gap-inline};
+  --gap-block:   #{$gap-block};
+  --gap-grid:    #{$gap-grid};
+  --padding-page: #{$padding-page};
+  --padding-card: #{$padding-card};
+  --padding-hero: #{$padding-hero};
+
+  --radius-sm:   #{$radius-sm};
+  --radius-md:   #{$radius-md};
+  --radius-lg:   #{$radius-lg};
+  --radius-xl:   #{$radius-xl};
+  --radius-pill: #{$radius-pill};
+}

@@ -1,0 +1,42 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/components/button' as btn;
+@use '@/styles/utilities/transitions' as trans;
+
+.btn {
+  @include btn.button-base;
+  @include trans.transition-bounce;
+}
+
+.variant--slayer {
+  background: var(--slayer-accent);
+  color: white;
+  box-shadow: 0 6px 20px rgba(var(--slayer-accent), 0.4);
+
+  &:hover {
+    background: color-mix(in srgb, var(--slayer-accent) 80%, white 20%);
+    box-shadow: 0 12px 32px rgba(var(--slayer-accent), 0.6);
+  }
+}
+
+.variant--watcher {
+  background: transparent;
+  border: 2px solid var(--watcher-accent);
+  color: var(--watcher-accent);
+
+  &:hover {
+    background: rgba(var(--watcher-accent), 0.15);
+    box-shadow: 0 0 40px rgba(var(--watcher-accent), 0.5);
+  }
+}
+
+.size--large {
+  @include btn.button-large;
+}
+
+.size--medium {
+  @include btn.button-medium;
+}
+
+.size--small {
+  @include btn.button-small;
+}

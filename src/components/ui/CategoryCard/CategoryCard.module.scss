@@ -1,0 +1,63 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/components/button' as btn;
+@use '@/styles/components/card' as card;
+@use '@/styles/utilities/transitions' as trans;
+
+.card {
+  @include card.card-base;
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    @include trans.hover-lift(12px);
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  &:hover &__image {
+    transform: scale(1.08);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%);
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover &__overlay {
+    opacity: 0.75;
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--space-6);
+    color: white;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-3);
+    text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  }
+
+  &__btn {
+    @include btn.button-primary;
+    @include btn.button-small;
+    margin-top: var(--space-4);
+    width: fit-content;
+  }
+}

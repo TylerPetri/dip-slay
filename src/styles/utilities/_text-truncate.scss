@@ -1,0 +1,27 @@
+// Truncate long text with ellipsis
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+// Multi-line truncation (requires -webkit-line-clamp support)
+.text-truncate--multi {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &--2 {
+    -webkit-line-clamp: 2;
+  }
+
+  &--3 {
+    -webkit-line-clamp: 3;
+  }
+
+  &--4 {
+    -webkit-line-clamp: 4;
+  }
+}

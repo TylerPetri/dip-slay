@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+@use './card' as card;
+@use './button' as btn;
+
+.duel-card {
+  @include card.card-base;
+
+  &__image {
+    height: 220px;
+    background: linear-gradient(135deg, var(--watcher-800), var(--watcher-900));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  &__content {
+    padding: var(--space-6);
+  }
+
+  &__category {
+    display: inline-block;
+    background: rgba(var(--color-accent), 0.2);
+    color: var(--color-accent);
+    padding: var(--space-2) var(--space-4);
+    border-radius: 12px;
+    font-size: var(--type-sm);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-3);
+  }
+
+  &__title {
+    font-size: var(--type-xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-4);
+  }
+
+  &__vote-bar {
+    height: 12px;
+    background: rgba(white, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: var(--space-4) 0;
+    display: flex;
+
+    &-watcher { background: var(--watcher-accent); }
+    &-slayer   { background: var(--slayer-accent); }
+  }
+
+  &__btn {
+    width: 100%;
+    @include btn.button-primary;
+    margin-top: var(--space-4);
+  }
+}

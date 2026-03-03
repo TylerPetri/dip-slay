@@ -1,0 +1,43 @@
+html {
+  font-size: var(--font-size-root);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--font-regular);
+  line-height: var(--line-normal);
+  letter-spacing: var(--tracking-normal);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-extrabold);
+  line-height: var(--line-tight);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+p, li, blockquote {
+  margin: 0;
+  line-height: var(--line-relaxed);
+}
+
+small, .text-small {
+  font-size: var(--type-sm);
+  opacity: 0.85;
+}
+
+strong, b {
+  font-weight: var(--font-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+// Utility classes (optional – can be moved to utilities/ later)
+.text-center   { text-align: center; }
+.text-left     { text-align: left; }
+.text-right    { text-align: right; }
+.text-uppercase { text-transform: uppercase; letter-spacing: var(--tracking-wide); }

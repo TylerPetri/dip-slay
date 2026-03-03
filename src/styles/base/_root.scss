@@ -1,0 +1,50 @@
+:root {
+  --font-size-root: 100%;
+
+  --scrollbar-width: 10px;
+  --scrollbar-track: var(--neutral-900);
+  --scrollbar-thumb: var(--neutral-600);
+  --scrollbar-thumb-hover: var(--neutral-500);
+
+  --selection-bg: var(--color-accent);
+  --selection-text: white;
+
+  --color-bg: var(--neutral-900, #0a0a0a);
+  --color-text: var(--neutral-50, #f9fafb);
+  --color-accent: var(--watcher-accent);
+  --color-glow: var(--watcher-glow);
+}
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: calc(var(--scrollbar-width) / 2);
+
+  &:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

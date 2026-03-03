@@ -1,0 +1,147 @@
+@use "@/styles/abstracts" as *;
+@use "@/styles/utilities/transitions" as trans;
+@use "@/styles/utilities/shadows" as shadow;
+
+// ── Section ────────────────────────────────────────────────────────────────
+.section {
+  padding: var(--padding-page) 2rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom right, var(--slayer-glow) 0%, transparent 40%),
+      linear-gradient(to top left, var(--watcher-glow) 0%, transparent 50%);
+    opacity: 0.12;
+    pointer-events: none;
+  }
+}
+
+// ── Container ────────────────────────────────────────────────────────────────
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+// ── Heading ─────────────────────────────────────────────────────────────────
+.heading {
+  font-size: clamp(2.8rem, 9vw, 5rem);
+  font-weight: var(--font-black);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--slayer-accent),
+    var(--watcher-accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: var(--tracking-tight);
+}
+
+// ── Subheading ───────────────────────────────────────────────────────────────
+.subheading {
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  opacity: 0.9;
+  color: var(--color-text-muted);
+  line-height: var(--line-relaxed);
+}
+
+// ── Grid (vertical on mobile, horizontal on desktop) ────────────────────────
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ── Card (glassmorphic + accent variants) ───────────────────────────────────
+.card {
+  background: rgba(white, 0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(white, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--padding-card);
+  // transition: all 0.4s $ease-bounce;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent,
+      var(--color-glow) 50%,
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+    @include trans.hover-lift(12px);
+
+    &::before {
+      opacity: 0.25;
+    }
+  }
+
+  // Accent variants
+  &.accent-slayer {
+    border-color: rgba(var(--slayer-accent), 0.45);
+
+    &:hover {
+      box-shadow: 0 0 60px rgba(var(--slayer-accent), 0.55);
+    }
+  }
+
+  &.accent-watcher {
+    border-color: rgba(var(--watcher-accent), 0.45);
+
+    &:hover {
+      box-shadow: 0 0 60px rgba(var(--watcher-accent), 0.55);
+    }
+  }
+}
+
+// ── Card elements ────────────────────────────────────────────────────────────
+.icon {
+  font-size: 4.5rem;
+  margin-bottom: var(--space-5);
+  display: block;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.title {
+  font-size: var(--type-title);
+  font-weight: var(--font-extrabold);
+  margin-bottom: var(--space-4);
+  letter-spacing: var(--tracking-tight);
+}
+
+.description {
+  font-size: var(--type-body);
+  line-height: var(--line-relaxed);
+  opacity: 0.88;
+}

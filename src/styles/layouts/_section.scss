@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+@mixin section-base {
+  position: relative;
+  padding: clamp(4rem, 10vw, 8rem) 2rem;
+  overflow: hidden;
+}
+
+@mixin section-hero {
+  @include section-base;
+  min-height: 100vh;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
+  position: relative;
+  background: linear-gradient(to bottom, var(--watcher-900), var(--color-bg));
+
+  @include until(md) {
+    padding: clamp(1.5rem, 8vw, 3rem) 1rem;
+    min-height: 85vh;
+  }
+}
+
+@mixin section-padded {
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+@mixin section-narrow {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}

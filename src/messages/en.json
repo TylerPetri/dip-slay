@@ -1,0 +1,127 @@
+{
+  "Landing": {
+    "featured": {
+      "heading": "Featured Categories",
+      "subheading": "Dive into the hottest dip battles happening right now — pick your arena and start watching or slaying",
+      "categories": {
+        "game-night": {
+          "title": "Game Night",
+          "description": "Classic party dips for endless gaming sessions"
+        },
+        "deep-fried": {
+          "title": "Deep Fried",
+          "description": "Crispy, indulgent fried favorites with killer dips"
+        },
+        "crackers-dips": {
+          "title": "Crackers & Dips",
+          "description": "Simple, shareable cracker pairings that always win"
+        },
+        "spicy-inferno": {
+          "title": "Spicy Inferno",
+          "description": "Heat-seeking dips that bring the fire"
+        },
+        "sweet-surprise": {
+          "title": "Sweet Surprise",
+          "description": "Dessert dips that trick your taste buds"
+        },
+        "quick-bite": {
+          "title": "Quick Bite",
+          "description": "Fast, no-fuss dips ready in minutes"
+        },
+        "comfort-classic": {
+          "title": "Comfort Classic",
+          "description": "Warm, nostalgic dips that feel like home"
+        },
+        "experimental-weird": {
+          "title": "Experimental Weird",
+          "description": "Wild, boundary-pushing creations that shock and delight"
+        }
+      }
+    },
+    "finalCta": {
+      "heading": "Ready to Slay?",
+      "subheading": "Join now and show the world your dip reigns supreme. Free to start — no purchase needed.",
+      "buttonSlay": "Start Slaying",
+      "buttonWatch": "Start Watching",
+      "legal": "Free to join. No purchase necessary. Let the best dip win."
+    },
+    "hero": {
+      "title": "Are you a Watcher… or a Slayer?",
+      "subtitle": "Watch epic dip battles, climb the leaderboard, or step into the arena and defend your recipes."
+    },
+    "watchCta": {
+      "title": "I want to WATCH",
+      "description": "Browse duels, vote, follow cooks, join the crowd"
+    },
+    "slayCta": {
+      "title": "I want to SLAY",
+      "description": "Upload your dips, build your deck, challenge others"
+    },
+    "legal": "Free to join. No purchase necessary. Let the best dip win."
+  },
+  "HowItWorks": {
+    "heading": "How It Works",
+    "subheading": "Three simple steps to dominate the dip arena",
+    "upload": {
+      "title": "Upload & Build Your Deck",
+      "description": "Showcase your best dips → select your battle-ready lineup of crowd favorites"
+    },
+    "duel": {
+      "title": "Duel or Watch",
+      "description": "Get matched for battle or spectate live clashes in categories like Game Night, Spicy Inferno, Deep Fried & more"
+    },
+    "win": {
+      "title": "Win, Earn, Climb",
+      "description": "Watchers vote → earn points → rise on the leaderboard → claim bragging rights (rewards coming soon)"
+    }
+  },
+  "Categories": {},
+  "Common": {
+    "signUpFree": "Sign Up Free",
+    "startSlaying": "Start Slaying"
+  },
+  "Slay": {
+    "arsenalSize": "{count} Dips in Arsenal",
+    "createNewDip": "CREATE NEW DIP",
+    "yourArsenal": "Your Slayer Arsenal",
+    "filters": {
+      "allDips": "All Dips",
+      "readyToDuel": "Ready to Duel",
+      "needsTweak": "Needs Tweak",
+      "topPerformers": "Top Performers"
+    },
+    "edit": "Edit",
+    "challenge": "Challenge",
+    "completeSetup": "Complete Setup",
+    "addNewDip": "Add New Dip",
+    "duelQueue": "Duel Queue",
+    "pendingChallenges": "{count} Pending Challenges",
+    "upcomingDuels": "{count} Upcoming Duels",
+    "nextOpponent": "Next opponent",
+    "joinQueue": "Join Queue",
+    "slayerStats": "Slayer Stats",
+    "viewFullStats": "View Full Stats"
+  },
+  "Watch": {
+    "arena": {
+      "title": "The Arena Awaits",
+      "subtitle": "Watch epic dip battles, vote on winners, cheer for your favorites, and climb the leaderboard as the crowd decides who reigns supreme."
+    },
+    "liveCount": "{count} Live Duels Happening Now",
+    "joinCrowd": "JOIN THE CROWD",
+    "filters": {
+      "all": "All Categories"
+    },
+    "watchLive": "WATCH LIVE",
+    "viewReplay": "VIEW REPLAY",
+    "topWatchers": {
+      "title": "Top Watchers Right Now",
+      "subtitle": "The most active voters shaping the dip battles. Become a legend."
+    },
+    "becomeWatcher": "BECOME A WATCHER",
+    "leaderboard": {
+      "title": "Leaderboard",
+      "subtitle": "Join the crowd and start earning points today!"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+@mixin grid-base($gap: var(--gap-grid)) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin grid-auto($min-width: 340px) {
+  @include grid-base;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+}
+
+@mixin grid-columns($count: 1) {
+  @include grid-base;
+  grid-template-columns: repeat($count, 1fr);
+}
+
+@mixin grid-2 {
+  @include grid-columns(2);
+}
+
+@mixin grid-3 {
+  @include grid-columns(3);
+}
+
+@mixin grid-responsive {
+  @include grid-base;
+  grid-template-columns: 1fr;
+
+  @include bp(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include bp(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@mixin grid-gap($size) {
+  gap: $size;
+}
+
+@mixin grid-gap-xs { @include grid-gap(var(--space-xs)); }
+@mixin grid-gap-sm { @include grid-gap(var(--space-sm)); }
+@mixin grid-gap-md { @include grid-gap(var(--space-md)); }
+@mixin grid-gap-lg { @include grid-gap(var(--space-lg)); }
+@mixin grid-gap-xl { @include grid-gap(var(--space-xl)); }

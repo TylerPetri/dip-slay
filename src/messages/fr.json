@@ -1,0 +1,127 @@
+{
+  "Landing": {
+    "featured": {
+      "heading": "Catégories en vedette",
+      "subheading": "Plonge dans les batailles de trempettes les plus hot du moment — choisis ton arène et commence à regarder ou à slayer",
+      "categories": {
+        "gameNight": {
+          "title": "Game Night",
+          "description": "Trempettes classiques pour des sessions de jeu interminables"
+        },
+        "deepFried": {
+          "title": "Deep Fried",
+          "description": "Favoris frits croustillants et ultra-indulgents"
+        },
+        "crackersDips": {
+          "title": "Crackers & Dips",
+          "description": "Combinaisons simples et partageables avec craquelins"
+        },
+        "spicyInferno": {
+          "title": "Spicy Inferno",
+          "description": "Trempettes qui brûlent la langue et enflamment la compétition"
+        },
+        "sweetSurprise": {
+          "title": "Sweet Surprise",
+          "description": "Trempettes dessert qui surprennent agréablement"
+        },
+        "quickBite": {
+          "title": "Quick Bite",
+          "description": "Trempettes rapides, prêtes en quelques minutes"
+        },
+        "comfortClassic": {
+          "title": "Comfort Classic",
+          "description": "Trempettes réconfortantes et nostalgiques"
+        },
+        "experimentalWeird": {
+          "title": "Experimental Weird",
+          "description": "Créations folles et expérimentales qui étonnent"
+        }
+      }
+    },
+    "finalCta": {
+      "heading": "Prêt à Slayer ?",
+      "subheading": "Rejoins-nous maintenant et montre au monde que ta trempette domine. Gratuit pour commencer — aucun achat requis.",
+      "buttonSlay": "Commence à Slayer",
+      "buttonWatch": "Commence à Watcher",
+      "legal": "Gratuit à rejoindre. Aucun achat nécessaire. Que la meilleure trempette gagne."
+    },
+    "hero": {
+      "title": "Es-tu un Watcher… ou un Slayer ?",
+      "subtitle": "Regarde des batailles de trempettes épiques, grimpe au classement ou entre dans l'arène et défends tes recettes."
+    },
+    "watchCta": {
+      "title": "Je veux WATCH",
+      "description": "Parcourir les duels, voter, suivre les cuisiniers, rejoindre la foule"
+    },
+    "slayCta": {
+      "title": "Je veux SLAY",
+      "description": "Téléverse tes trempettes, construis ton deck, défie les autres"
+    },
+    "legal": "Gratuit à rejoindre. Aucun achat nécessaire. Que la meilleure trempette gagne."
+  },
+  "HowItWorks": {
+    "heading": "Comment ça marche",
+    "subheading": "Trois étapes simples pour dominer l’arène des trempettes",
+    "upload": {
+      "title": "Téléverse & Construis ton Deck",
+      "description": "Montre tes meilleures trempettes → sélectionne ta formation prête pour le combat"
+    },
+    "duel": {
+      "title": "Duel ou Regarde",
+      "description": "Fais-toi jumeler pour un duel ou regarde les affrontements en direct dans des catégories comme Game Night, Spicy Inferno, Deep Fried & plus"
+    },
+    "win": {
+      "title": "Gagne, Accumule, Grimpe",
+      "description": "Les watchers votent → gagne des points → monte au classement → revendique tes droits de vantardise (récompenses à venir)"
+    }
+  },
+  "Categories": {},
+  "Common": {
+    "signUpFree": "",
+    "startSlaying": ""
+  },
+  "Slay": {
+    "arsenalSize": "{count} Dips dans ton arsenal",
+    "createNewDip": "CRÉER UN NOUVEAU DIP",
+    "yourArsenal": "Ton Arsenal de Slayer",
+    "filters": {
+      "allDips": "Tous les Dips",
+      "readyToDuel": "Prêts à combattre",
+      "needsTweak": "À améliorer",
+      "topPerformers": "Meilleurs performeurs"
+    },
+    "edit": "Modifier",
+    "challenge": "Défier",
+    "completeSetup": "Compléter la setup",
+    "addNewDip": "Ajouter un nouveau dip",
+    "duelQueue": "File d'attente de duels",
+    "pendingChallenges": "{count} défis en attente",
+    "upcomingDuels": "{count} duels à venir",
+    "nextOpponent": "Prochain adversaire",
+    "joinQueue": "Joindre la file",
+    "slayerStats": "Statistiques Slayer",
+    "viewFullStats": "Voir les stats complètes"
+  },
+  "Watch": {
+    "arena": {
+      "title": "L'Arène Vous Attend",
+      "subtitle": "Regardez des batailles de dips épiques, votez pour les gagnants, encouragez vos favoris et montez au classement pendant que la foule décide qui règne en maître."
+    },
+    "liveCount": "{count} Duels en Direct en Ce Moment",
+    "joinCrowd": "REJOINDRE LA FOULE",
+    "filters": {
+      "all": "Toutes les Catégories"
+    },
+    "watchLive": "REGARDER EN DIRECT",
+    "viewReplay": "VOIR LE REPLAY",
+    "topWatchers": {
+      "title": "Meilleurs Watchers en Ce Moment",
+      "subtitle": "Les votants les plus actifs qui façonnent les batailles de dips. Devenez une légende."
+    },
+    "becomeWatcher": "DEVENIR WATCHER",
+    "leaderboard": {
+      "title": "Classement",
+      "subtitle": "Rejoignez la foule et commencez à gagner des points dès aujourd'hui !"
+    }
+  }
+}

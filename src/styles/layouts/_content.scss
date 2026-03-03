@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+
+  &--with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: var(--space-8);
+
+    @include until(lg) {
+      grid-template-columns: 1fr;
+    }
+
+    > main { grid-column: 1; }
+    > aside { grid-column: 2; }
+  }
+
+  &--centered {
+    text-align: center;
+    max-width: 900px;
+  }
+
+  &--narrow {
+    max-width: 800px;
+  }
+}

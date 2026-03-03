@@ -1,0 +1,33 @@
+@use './breakpoints' as bp;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glass($blur: 14px, $opacity: 0.18, $saturation: 140%) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate($saturation);
+  -webkit-backdrop-filter: blur($blur) saturate($saturation);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@mixin hover-lift($distance: 8px, $shadow: true) {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover, &:focus-visible {
+    transform: translateY(-#{$distance});
+    @if $shadow {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    }
+  }
+}
+
+@mixin accent-glow($color) {
+  box-shadow: 0 0 30px rgba($color, 0.4);
+  border-color: rgba($color, 0.5);
+
+  &:hover {
+    box-shadow: 0 0 60px rgba($color, 0.6);
+  }
+}

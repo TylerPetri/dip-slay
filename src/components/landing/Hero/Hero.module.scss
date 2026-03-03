@@ -1,0 +1,71 @@
+@use "@/styles/abstracts" as *;
+@use "@/styles/layouts/hero" as hero;
+@use "@/styles/components/button" as btn;
+@use "@/styles/utilities/flex-helpers" as flex;
+
+.hero {
+  @include hero.hero-base;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: var(--z-hero-bg);
+
+  @include until(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.slayerSide {
+  background: linear-gradient(135deg, var(--slayer-950), var(--slayer-800));
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+}
+
+.watcherSide {
+  background: linear-gradient(135deg, var(--watcher-950), var(--watcher-800));
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.content {
+  @include hero.hero-content;
+}
+
+.title {
+  @include hero.hero-title;
+}
+
+.subtitle {
+  @include hero.hero-subtitle;
+}
+
+.ctaContainer {
+  @include hero.hero-cta-group
+}
+
+.cta {
+  min-width: 340px;
+  @include btn.button-large;
+}
+
+.ctaTitle {
+  display: block;
+  font-size: var(--type-2xl);
+  font-weight: var(--font-extrabold);
+  margin-bottom: 0.5rem;
+}
+
+.ctaDesc {
+  display: block;
+  font-size: var(--type-sm);
+  opacity: 0.9;
+}
+
+.legal {
+  font-size: var(--type-sm);
+  opacity: 0.7;
+  margin-top: 2.5rem;
+}

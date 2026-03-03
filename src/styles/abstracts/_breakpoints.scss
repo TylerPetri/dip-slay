@@ -1,0 +1,35 @@
+// ────────────────────────────────────────────────
+// Breakpoints map + mixin
+// Use @include bp(md) { ... }
+// ────────────────────────────────────────────────
+
+@use 'sass:map';
+
+$breakpoints: (
+  xs:  475px,
+  sm:  640px,
+  md:  768px,
+  lg:  1024px,
+  xl:  1280px,
+  xxl: 1536px
+);
+
+@mixin bp($key) {
+  $value: map.get($breakpoints, $key);
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$key}. Available: #{map-keys($breakpoints)}";
+  }
+}
+
+@mixin until($key) {
+  $value: map.get($breakpoints, $key);
+  @if $value {
+    @media (max-width: ($value - 1px)) {
+      @content;
+    }
+  }
+}

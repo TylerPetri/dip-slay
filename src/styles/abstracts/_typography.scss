@@ -1,0 +1,65 @@
+// ────────────────────────────────────────────────
+// Typography scale & defaults
+// Use $type-lg in calculations, var(--type-lg) in components
+// ────────────────────────────────────────────────
+
+$font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+$font-light:    300;
+$font-regular:  400;
+$font-medium:   500;
+$font-semibold: 600;
+$font-bold:     700;
+$font-extrabold: 800;
+$font-black:    900;
+
+$base-font-size: 1rem;
+
+$type-xs:   clamp(0.75rem, 0.75rem + 0.39vw, 0.875rem);
+$type-sm:   clamp(0.875rem, 0.875rem + 0.39vw, 1rem);
+$type-base: clamp(1rem, 1rem + 0.39vw, 1.125rem);
+$type-lg:   clamp(1.125rem, 1.125rem + 0.78vw, 1.25rem);
+$type-xl:   clamp(1.25rem, 1.25rem + 1.17vw, 1.5rem);
+$type-2xl:  clamp(1.5rem, 1.5rem + 1.56vw, 1.875rem);
+$type-3xl:  clamp(1.875rem, 1.875rem + 2.34vw, 2.25rem);
+$type-4xl:  clamp(2.25rem, 2.25rem + 3.12vw, 3rem);
+
+$line-tight:   1.1;
+$line-normal:  1.5;
+$line-relaxed: 1.625;
+
+$tracking-tight:  -0.025em;
+$tracking-normal: 0;
+$tracking-wide:   0.025em;
+
+// Output
+:root {
+  --font-sans:    #{$font-sans};
+  --font-mono:    #{$font-mono};
+
+  --font-light:    #{$font-light};
+  --font-regular:  #{$font-regular};
+  --font-medium:   #{$font-medium};
+  --font-semibold: #{$font-semibold};
+  --font-bold:     #{$font-bold};
+  --font-extrabold: #{$font-extrabold};
+  --font-black:    #{$font-black};
+
+  --type-xs:    #{$type-xs};
+  --type-sm:    #{$type-sm};
+  --type-base:  #{$type-base};
+  --type-lg:    #{$type-lg};
+  --type-xl:    #{$type-xl};
+  --type-2xl:   #{$type-2xl};
+  --type-3xl:   #{$type-3xl};
+  --type-4xl:   #{$type-4xl};
+
+  --line-tight:   #{$line-tight};
+  --line-normal:  #{$line-normal};
+  --line-relaxed: #{$line-relaxed};
+
+  --tracking-tight:  #{$tracking-tight};
+  --tracking-normal: #{$tracking-normal};
+  --tracking-wide:   #{$tracking-wide};
+}

@@ -1,0 +1,35 @@
+// Centralized z-index scale
+$z-base:          0;
+$z-background:    -10;
+$z-default:       $z-base;
+$z-content:       1;
+$z-tooltip:       100;
+$z-dropdown:      200;
+$z-popover:       300;
+$z-modal-backdrop: 900;
+$z-modal:         1000;
+$z-header:        1100;
+$z-toast:         1200;
+$z-debug:         9999;
+
+// Semantic
+$z-hero-bg:       $z-background;
+$z-hero-content:  $z-content;
+$z-card-hover:    $z-content + 1;
+$z-cta-float:     $z-popover;
+
+// Output as CSS vars
+:root {
+  --z-base:           #{$z-base};
+  --z-background:     #{$z-background};
+  --z-default:        #{$z-default};
+  --z-content:        #{$z-content};
+  --z-tooltip:        #{$z-tooltip};
+  --z-dropdown:       #{$z-dropdown};
+  --z-popover:        #{$z-popover};
+  --z-modal-backdrop: #{$z-modal-backdrop};
+  --z-modal:          #{$z-modal};
+  --z-header:         #{$z-header};
+  --z-toast:          #{$z-toast};
+  --z-debug:          #{$z-debug};
+}

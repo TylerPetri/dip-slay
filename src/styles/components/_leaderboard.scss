@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+@use './button' as btn;
+
+.leaderboard {
+  padding: var(--space-10) 2rem;
+  text-align: center;
+
+  &__title {
+    font-size: var(--type-3xl);
+    font-weight: var(--font-black);
+    margin-bottom: var(--space-4);
+    background: linear-gradient(90deg, var(--watcher-accent), white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  &__subtitle {
+    font-size: var(--type-lg);
+    opacity: 0.9;
+    margin-bottom: var(--space-6);
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+
+    &__item {
+      background: rgba(white, 0.1);
+      padding: var(--space-4) var(--space-6);
+      border-radius: 16px;
+      font-weight: var(--font-semibold);
+      min-width: 220px;
+    }
+  }
+
+  &__cta {
+    @include btn.button-primary;
+    margin-top: var(--space-6);
+  }
+}
