@@ -50,16 +50,16 @@
 }
 
 @mixin button-large {
-  padding: var(--space-5) var(--space-10);
+  padding: var(--space-xl) var(--space-3xl);
   font-size: var(--type-lg);
 }
 
 @mixin button-medium {
-  padding: var(--space-4) var(--space-8);
+  padding: var(--space-lg) var(--space-2xl);
   font-size: var(--type-base);
 }
 
 @mixin button-small {
-  padding: var(--space-3) var(--space-6);
+  padding: var(--space-md) var(--space-xl);
   font-size: var(--type-sm);
 }

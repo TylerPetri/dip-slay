@@ -28,8 +28,7 @@ export default function Hero({ title, subtitle, watchTitle, watchDesc, slayTitle
           <Button 
             variant="watcher" 
             size="large"
-            as={Link}
-            href="/watch"
+            mode="watcher"
             className={styles.cta}
           >
             <span className={styles.ctaTitle}>{watchTitle}</span>
@@ -39,8 +38,7 @@ export default function Hero({ title, subtitle, watchTitle, watchDesc, slayTitle
           <Button 
             variant="slayer" 
             size="large"
-            as={Link}
-            href="/slay"
+            mode="slayer"
             className={styles.cta}
           >
             <span className={styles.ctaTitle}>{slayTitle}</span>

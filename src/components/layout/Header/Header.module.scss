@@ -1,0 +1,70 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/components/button' as btn;
+@use '@/styles/layouts/container' as container;
+@use '@/styles/utilities/flex-helpers' as flex;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background: var(--neutral-900, #0a0a0a);           // solid dark base
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);            // depth
+  padding: var(--space-lg) var(--space-xl);
+  backdrop-filter: none;                             // remove blur/transparency
+  -webkit-backdrop-filter: none;
+}
+
+.inner {
+  @include container.container-base;
+  @include flex.flex(row, nowrap, space-between, center);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.modeBadge {
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-pill);
+  font-weight: var(--font-bold);
+  font-size: var(--type-base);
+}
+
+.slayer .modeBadge {
+  background: rgba(var(--slayer-accent), 0.25);
+  color: var(--slayer-accent);
+  border: 1px solid rgba(var(--slayer-accent), 0.5);
+}
+
+.watcher .modeBadge {
+  background: rgba(var(--watcher-accent), 0.25);
+  color: var(--watcher-accent);
+  border: 1px solid rgba(var(--watcher-accent), 0.5);
+}
+
+.switchButton {
+  min-width: 180px;
+}
+
+.logout {
+  opacity: 0.85;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Mobile
+@include until(md) {
+  .inner {
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    justify-content: center;
+  }
+
+  .modeBadge {
+    order: -1;
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -81,47 +81,39 @@
     "startSlaying": "Start Slaying"
   },
   "Slay": {
-    "arsenalSize": "{count} Dips in Arsenal",
-    "createNewDip": "CREATE NEW DIP",
-    "yourArsenal": "Your Slayer Arsenal",
-    "filters": {
-      "allDips": "All Dips",
-      "readyToDuel": "Ready to Duel",
-      "needsTweak": "Needs Tweak",
-      "topPerformers": "Top Performers"
-    },
-    "edit": "Edit",
-    "challenge": "Challenge",
-    "completeSetup": "Complete Setup",
-    "addNewDip": "Add New Dip",
+    "slayerMode": "Slayer Mode",
+    "winRate": "Win Rate",
+    "totalDuels": "Total Duels",
+    "createDip": "Create New Dip",
+    "yourArsenal": "Your Arsenal",
+    "arsenalEmpty": "Your arsenal is empty, Slayer!\nTime to cook something legendary.",
+    "createFirstDip": "Create Your First Dip",
     "duelQueue": "Duel Queue",
-    "pendingChallenges": "{count} Pending Challenges",
-    "upcomingDuels": "{count} Upcoming Duels",
-    "nextOpponent": "Next opponent",
+    "pendingChallenges": "Pending Challenges",
+    "nextOpponent": "Next Opponent",
     "joinQueue": "Join Queue",
     "slayerStats": "Slayer Stats",
-    "viewFullStats": "View Full Stats"
+    "globalRank": "Global Rank",
+    "trophies": "Trophies",
+    "highestTrophies": "Highest Trophies",
+    "threeCrownWins": "Three-Crown Wins",
+    "currentStreak": "Current Streak",
+    "viewFullStats": "View Full Stats",
+    "viewStats": "View Stats"
   },
-  "Watch": {
-    "arena": {
-      "title": "The Arena Awaits",
-      "subtitle": "Watch epic dip battles, vote on winners, cheer for your favorites, and climb the leaderboard as the crowd decides who reigns supreme."
-    },
-    "liveCount": "{count} Live Duels Happening Now",
-    "joinCrowd": "JOIN THE CROWD",
+"Watch": {
+    "arenaTitle": "The Arena Awaits",
+    "liveDuels": "Live Duels Happening Now",
+    "joinCrowd": "Join the Crowd",
     "filters": {
       "all": "All Categories"
     },
-    "watchLive": "WATCH LIVE",
-    "viewReplay": "VIEW REPLAY",
-    "topWatchers": {
-      "title": "Top Watchers Right Now",
-      "subtitle": "The most active voters shaping the dip battles. Become a legend."
-    },
-    "becomeWatcher": "BECOME A WATCHER",
+    "watchLive": "Watch Live",
+    "voteNow": "Vote Now",
     "leaderboard": {
-      "title": "Leaderboard",
-      "subtitle": "Join the crowd and start earning points today!"
-    }
+      "title": "Top Watchers",
+      "subtitle": "The most active voters shaping the battles right now"
+    },
+    "becomeWatcher": "Become a Watcher"
   }
 }

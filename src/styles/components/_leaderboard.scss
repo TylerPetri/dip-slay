@@ -2,13 +2,13 @@
 @use './button' as btn;
 
 .leaderboard {
-  padding: var(--space-10) 2rem;
+  padding: var(--space-3xl) 2rem;
   text-align: center;
 
   &__title {
     font-size: var(--type-3xl);
     font-weight: var(--font-black);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-lg);
     background: linear-gradient(90deg, var(--watcher-accent), white);
     -webkit-background-clip: text;
     background-clip: text;
@@ -18,19 +18,19 @@
   &__subtitle {
     font-size: var(--type-lg);
     opacity: 0.9;
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-xl);
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-6);
-    margin: var(--space-6) 0;
+    gap: var(--space-xl);
+    margin: var(--space-xl) 0;
 
     &__item {
       background: rgba(white, 0.1);
-      padding: var(--space-4) var(--space-6);
+      padding: var(--space-lg) var(--space-xl);
       border-radius: 16px;
       font-weight: var(--font-semibold);
       min-width: 220px;
@@ -39,6 +39,6 @@
 
   &__cta {
     @include btn.button-primary;
-    margin-top: var(--space-6);
+    margin-top: var(--space-xl);
   }
 }

@@ -9,8 +9,8 @@
 
   &__step-number {
     position: absolute;
-    top: var(--space-5);
-    right: var(--space-5);
+    top: var(--space-xl);
+    right: var(--space-xl);
     font-size: 1.5rem;
     font-weight: var(--font-black);
     color: var(--color-accent);
@@ -20,7 +20,7 @@
 
   &__icon {
     font-size: 6rem;
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-xl);
     display: block;
     line-height: 1;
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
@@ -29,7 +29,7 @@
   &__title {
     font-size: var(--type-title);
     font-weight: var(--font-extrabold);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-lg);
     letter-spacing: var(--tracking-tight);
   }
 

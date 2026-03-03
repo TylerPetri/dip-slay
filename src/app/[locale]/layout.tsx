@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
 
-import '@/styles/main.scss';
+import "@/styles/main.scss";
+import Header from "@/components/layout/Header/Header";
 
 type Props = {
   children: React.ReactNode;
@@ -10,8 +11,9 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: 'Dip-Slay – Watcher or Slayer?',
-  description: 'Competitive dip battles. Upload, duel, vote, climb the leaderboard.',
+  title: "Dip-Slay – Watcher or Slayer?",
+  description:
+    "Competitive dip battles. Upload, duel, vote, climb the leaderboard.",
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -19,7 +21,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   // Optional: Validate locale (prevents invalid /[locale] from rendering)
   // You can use your list of supported locales
-  const supportedLocales = ['en', 'fr'];
+  const supportedLocales = ["en", "fr"];
   if (!supportedLocales.includes(locale)) {
     notFound();
   }
@@ -32,9 +34,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
           {children}
         </NextIntlClientProvider>
       </body>

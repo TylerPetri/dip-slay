@@ -41,22 +41,37 @@ $info:      #3b82f6;
 
 // Output runtime variables
 :root {
+  // Full Slayer scale
+  --slayer-950:  #{$slayer-950};
+  --slayer-900:  #{$slayer-900};
+  --slayer-800:  #{$slayer-800};
+  --slayer-700:  #{$slayer-700};
+  --slayer-600:  #{$slayer-600};
   --slayer-accent: #{$slayer-accent};
-  --watcher-accent: #{$watcher-accent};
   --slayer-glow: #{$slayer-glow};
+
+  // Full Watcher scale
+  --watcher-950:  #{$watcher-950};
+  --watcher-900:  #{$watcher-900};
+  --watcher-800:  #{$watcher-800};
+  --watcher-700:  #{$watcher-700};
+  --watcher-600:  #{$watcher-600};
+  --watcher-accent: #{$watcher-accent};
   --watcher-glow: #{$watcher-glow};
 
-  --neutral-50:  #{$neutral-50};
-  --neutral-100: #{$neutral-100};
-  --neutral-200: #{$neutral-200};
-  --neutral-300: #{$neutral-300};
-  --neutral-400: #{$neutral-400};
-  --neutral-500: #{$neutral-500};
-  --neutral-600: #{$neutral-600};
-  --neutral-700: #{$neutral-700};
-  --neutral-800: #{$neutral-800};
-  --neutral-900: #{$neutral-900};
+  // Neutrals (already good, but confirming)
+  --neutral-50:   #{$neutral-50};
+  --neutral-100:  #{$neutral-100};
+  --neutral-200:  #{$neutral-200};
+  --neutral-300:  #{$neutral-300};
+  --neutral-400:  #{$neutral-400};
+  --neutral-500:  #{$neutral-500};
+  --neutral-600:  #{$neutral-600};
+  --neutral-700:  #{$neutral-700};
+  --neutral-800:  #{$neutral-800};
+  --neutral-900:  #{$neutral-900};
 
+  // Semantic
   --color-success: #{$success};
   --color-warning: #{$warning};
   --color-error:   #{$error};

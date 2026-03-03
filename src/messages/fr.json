@@ -81,47 +81,39 @@
     "startSlaying": ""
   },
   "Slay": {
-    "arsenalSize": "{count} Dips dans ton arsenal",
-    "createNewDip": "CRÉER UN NOUVEAU DIP",
-    "yourArsenal": "Ton Arsenal de Slayer",
-    "filters": {
-      "allDips": "Tous les Dips",
-      "readyToDuel": "Prêts à combattre",
-      "needsTweak": "À améliorer",
-      "topPerformers": "Meilleurs performeurs"
-    },
-    "edit": "Modifier",
-    "challenge": "Défier",
-    "completeSetup": "Compléter la setup",
-    "addNewDip": "Ajouter un nouveau dip",
-    "duelQueue": "File d'attente de duels",
-    "pendingChallenges": "{count} défis en attente",
-    "upcomingDuels": "{count} duels à venir",
+    "slayerMode": "Mode Slayer",
+    "winRate": "Taux de victoire",
+    "totalDuels": "Duels totaux",
+    "createDip": "Créer un nouveau dip",
+    "yourArsenal": "Votre Arsenal",
+    "arsenalEmpty": "Votre arsenal est vide, Slayer !\nIl est temps de préparer quelque chose de légendaire.",
+    "createFirstDip": "Créer ton premier dip",
+    "duelQueue": "File d'attente des duels",
+    "pendingChallenges": "Défis en attente",
     "nextOpponent": "Prochain adversaire",
-    "joinQueue": "Joindre la file",
+    "joinQueue": "Rejoindre la file",
     "slayerStats": "Statistiques Slayer",
-    "viewFullStats": "Voir les stats complètes"
+    "globalRank": "Classement mondial",
+    "trophies": "Trophées",
+    "highestTrophies": "Meilleur score de trophées",
+    "threeCrownWins": "Victoires à trois couronnes",
+    "currentStreak": "Série actuelle",
+    "viewFullStats": "Voir toutes les stats",
+    "viewStats": "Voir les stats"
   },
-  "Watch": {
-    "arena": {
-      "title": "L'Arène Vous Attend",
-      "subtitle": "Regardez des batailles de dips épiques, votez pour les gagnants, encouragez vos favoris et montez au classement pendant que la foule décide qui règne en maître."
-    },
-    "liveCount": "{count} Duels en Direct en Ce Moment",
-    "joinCrowd": "REJOINDRE LA FOULE",
+"Watch": {
+    "arenaTitle": "L'Arène vous attend",
+    "liveDuels": "Duels en direct en ce moment",
+    "joinCrowd": "Rejoindre la foule",
     "filters": {
-      "all": "Toutes les Catégories"
+      "all": "Toutes les catégories"
     },
-    "watchLive": "REGARDER EN DIRECT",
-    "viewReplay": "VOIR LE REPLAY",
-    "topWatchers": {
-      "title": "Meilleurs Watchers en Ce Moment",
-      "subtitle": "Les votants les plus actifs qui façonnent les batailles de dips. Devenez une légende."
-    },
-    "becomeWatcher": "DEVENIR WATCHER",
+    "watchLive": "Regarder en direct",
+    "voteNow": "Voter maintenant",
     "leaderboard": {
-      "title": "Classement",
-      "subtitle": "Rejoignez la foule et commencez à gagner des points dès aujourd'hui !"
-    }
+      "title": "Meilleurs Watchers",
+      "subtitle": "Les votants les plus actifs qui façonnent les batailles en ce moment"
+    },
+    "becomeWatcher": "Devenir Watcher"
   }
 }

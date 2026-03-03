@@ -25,8 +25,8 @@
 }
 
 @mixin section-padded {
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
 }
 
 @mixin section-narrow {

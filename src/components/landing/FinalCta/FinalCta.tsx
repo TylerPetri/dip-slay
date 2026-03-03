@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button/Button";
 import styles from "./FinalCta.module.scss";
-import { Link } from "@/i18n/navigation";
 
 export default function FinalCta() {
   const t = useTranslations("Landing.finalCta");
@@ -16,8 +15,7 @@ export default function FinalCta() {
           <Button
             variant="slayer"
             size="large"
-            as={Link}
-            href="/slay"
+            mode="slayer"
             className={styles.mainBtn}
           >
             {t("buttonSlay")}
@@ -26,8 +24,7 @@ export default function FinalCta() {
           <Button
             variant="watcher"
             size="large"
-            as={Link}
-            href="/watch"
+            mode="watcher"
             className={styles.secondaryBtn}
           >
             {t("buttonWatch")}

@@ -3,12 +3,12 @@
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-xl);
 
   &--with-sidebar {
     display: grid;
     grid-template-columns: 1fr 320px;
-    gap: var(--space-8);
+    gap: var(--space-2xl);
 
     @include until(lg) {
       grid-template-columns: 1fr;

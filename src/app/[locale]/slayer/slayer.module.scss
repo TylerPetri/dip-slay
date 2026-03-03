@@ -1,0 +1,384 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/layouts/container' as container;
+@use '@/styles/layouts/grid' as grid;
+@use '@/styles/components/card' as card;
+@use '@/styles/components/button' as btn;
+@use '@/styles/utilities/flex-helpers' as flex;
+@use '@/styles/utilities/position' as pos;
+@use '@/styles/utilities/transitions' as trans;
+@use '@/styles/utilities/shadows' as shadow;
+
+// ── Page root ────────────────────────────────────────────────────────────────
+.main {
+  min-height: 100vh;
+  background: var(--slayer-950);
+  color: var(--neutral-50);
+  overflow-x: hidden;
+  position: relative;
+  padding: var(--space-3xl) 0; // space for FAB
+}
+
+// ── Hero ─────────────────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  padding: clamp(5rem, 15vh, 9rem) var(--space-xl) clamp(3rem, 10vh, 6rem);
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(var(--slayer-accent), 0.12), transparent 70%);
+  border-bottom: 1px solid rgba(var(--slayer-accent), 0.18);
+
+  &::before {
+    content: '';
+    @include pos.absolute-full;
+    background: radial-gradient(circle at 50% 20%, rgba(var(--slayer-accent), 0.22), transparent 60%);
+    pointer-events: none;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.playerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-lg);
+  background: rgba(var(--slayer-accent), 0.15);
+  backdrop-filter: blur(12px);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-xl);
+  border: 1px solid rgba(var(--slayer-accent), 0.4);
+}
+
+.rank {
+  font-size: var(--type-xl);
+  font-weight: var(--font-black);
+  color: var(--slayer-accent);
+  text-shadow: 0 0 12px rgba(var(--slayer-accent), 0.6);
+}
+
+.trophies {
+  font-size: var(--type-lg);
+  opacity: 0.9;
+}
+
+.heroTitle {
+  font-size: clamp(2.8rem, 9vw, 4.8rem);
+  font-weight: var(--font-black);
+  background: linear-gradient(90deg, var(--slayer-accent), #ff4d6d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.heroSubtitle {
+  font-size: var(--type-lg);
+  opacity: 0.9;
+  margin-bottom: var(--space-2xl);
+}
+
+.createButton {
+  min-width: 280px;
+  box-shadow: 0 0 40px rgba(var(--slayer-accent), 0.55);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+// ── Content Grid (main + sidebar) ────────────────────────────────────────────
+.contentGrid {
+  @include container.container-base;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  padding: 0 var(--space-xl);
+
+  @include bp(lg) {
+    grid-template-columns: 3fr 1fr;     // main content wider, sidebar narrower
+    gap: var(--space-3xl);
+  }
+}
+
+.mainColumn {
+  // contains arsenal + queue
+}
+
+// ── Sections ─────────────────────────────────────────────────────────────────
+.section {
+  margin-bottom: clamp(4rem, 10vh, 8rem);
+}
+
+.sectionTitle {
+  font-size: var(--type-2xl);
+  font-weight: var(--font-extrabold);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  background: linear-gradient(90deg, var(--slayer-accent), white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// ── Dip Cards ────────────────────────────────────────────────────────────────
+.dipGrid {
+  @include grid.grid-responsive;
+  gap: var(--space-xl);
+
+  @include bp(lg) {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+.dipCard {
+  @include card.card-base;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 0 60px rgba(var(--slayer-accent), 0.55);
+  }
+}
+
+.dipImageWrapper {
+  position: relative;
+  height: 65%;
+  background: var(--slayer-800);
+}
+
+.placeholderImage { // temp until real images
+  @include pos.absolute-full;
+  background: linear-gradient(135deg, var(--slayer-700), var(--slayer-900));
+}
+
+.readyBadge,
+.tweakBadge {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 36px;
+  height: 36px;
+  @include flex-center;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: var(--font-black);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.readyBadge {
+  background: #22c55e;
+  color: white;
+  box-shadow: 0 0 24px #22c55e88;
+}
+
+.tweakBadge {
+  background: #f59e0b;
+  color: black;
+}
+
+.dipInfo {
+  padding: var(--space-xl);
+  background: rgba(0,0,0,0.5);
+}
+
+.dipName {
+  font-size: var(--type-lg);
+  font-weight: var(--font-extrabold);
+  margin-bottom: var(--space-sm);
+}
+
+.dipCategory {
+  font-size: var(--type-sm);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+.dipStats {
+  @include flex.flex(row, nowrap, space-between);
+  font-size: var(--type-base);
+  font-weight: var(--font-semibold);
+}
+
+.rating {
+  color: #fbbf24;
+}
+
+// ── Queue ────────────────────────────────────────────────────────────────────
+.queueSection {
+  margin-top: var(--space-2xl);
+}
+
+.queueCard {
+  @include card.card-base;
+  padding: var(--space-2xl);
+  text-align: center;
+  border-color: rgba(var(--slayer-accent), 0.6);
+  background: rgba(var(--slayer-900), 0.7);
+  backdrop-filter: blur(16px);
+
+  &.pulsing {
+    animation: pulse 2.5s infinite ease-in-out;
+    border-color: var(--slayer-accent);
+    box-shadow: 0 0 50px rgba(var(--slayer-accent), 0.45);
+  }
+}
+
+.queuePending {
+  font-size: var(--type-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.nextOpponent {
+  font-size: var(--type-base);
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+}
+
+// ── Stats Sidebar ────────────────────────────────────────────────────────────
+.statsSidebar {
+  // On mobile: appears after main content (natural scroll)
+  // On desktop: becomes sticky
+  @include bp(lg) {
+    position: sticky;
+    top: var(--space-3xl);
+    align-self: start;
+    height: fit-content;
+  }
+}
+
+.statsCard {
+  @include card.card-base;
+  padding: var(--space-2xl);
+  background: rgba(var(--slayer-900), 0.75);
+  border-color: rgba(var(--slayer-accent), 0.5);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+.statsTitle {
+  font-size: var(--type-xl);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  color: var(--slayer-accent);
+}
+
+.rankCircle {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto var(--space-xl);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(var(--slayer-accent), 0.4), transparent 70%);
+  border: 4px solid var(--slayer-accent);
+  @include flex.flex-column-center;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(var(--slayer-accent), 0.5);
+}
+
+.rankNumber {
+  font-size: 3.2rem;
+  font-weight: var(--font-black);
+  color: white;
+  text-shadow: 0 0 16px var(--slayer-accent);
+}
+
+.rankLabel {
+  font-size: var(--type-sm);
+  opacity: 0.85;
+}
+
+.statsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.statRow {
+  @include flex.flex(row, nowrap, space-between, center);
+  font-size: var(--type-base);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid rgba(white, 0.08);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.statLabel {
+  opacity: 0.8;
+}
+
+.statValue {
+  font-weight: var(--font-bold);
+  color: white;
+}
+
+.progressBar {
+  position: relative;
+  width: 120px;
+  height: 12px;
+  background: rgba(white, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+
+  span {
+    position: absolute;
+    inset: 0;
+    @include flex-center;
+    font-size: 0.75rem;
+    color: white;
+    text-shadow: 0 0 4px black;
+  }
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(to right, var(--slayer-accent), #ff4d6d);
+  transition: width 1s ease;
+}
+
+.streakHot {
+  color: #fbbf24;
+  animation: flicker 2s infinite;
+}
+
+.viewFullStats {
+  width: 100%;
+  margin-top: var(--space-lg);
+}
+
+// ── FAB (mobile only) ────────────────────────────────────────────────────────
+.fab {
+  position: fixed;
+  bottom: var(--space-2xl);
+  right: var(--space-xl);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  @include flex-center;
+  box-shadow: 0 12px 40px rgba(var(--slayer-accent), 0.5);
+  z-index: var(--z-cta-float);
+  animation: pulse 3s infinite;
+
+  @include bp(md) {
+    display: none;
+  }
+}
+
+// ── Empty state ──────────────────────────────────────────────────────────────
+.emptyState {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-xl);
+  background: rgba(white, 0.05);
+  border-radius: var(--radius-xl);
+  border: 1px dashed rgba(var(--slayer-accent), 0.3);
+}
+
+// ── Animations (already in abstracts, just reusing) ──────────────────────────
+// pulse, flicker already defined in _animations.scss

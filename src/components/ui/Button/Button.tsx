@@ -1,37 +1,75 @@
-import { ComponentPropsWithoutRef, ElementType } from 'react';
+'use client';
+
+import { ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
+import Cookies from 'js-cookie';
+import { useRouter } from '@/i18n/navigation';
 import styles from './Button.module.scss';
 
 type ButtonVariant = 'slayer' | 'watcher' | 'outline';
 type ButtonSize = 'small' | 'medium' | 'large';
 
-type Props<C extends ElementType> = {
-  as?: C;
+type Props = {
   variant?: ButtonVariant;
   size?: ButtonSize;
-} & ComponentPropsWithoutRef<C>;
+  mode?: 'slayer' | 'watcher';           // triggers cookie + navigation
+  href?: string;                         // optional (for future <a> or prefetch hints)
+  children: React.ReactNode;
+} & Omit<
+  ComponentPropsWithoutRef<'button'>,
+  'type' // we hardcode type="button" below
+>;
 
-export default function Button<C extends ElementType = 'button'>({
-  as,
+// We could also extend HTMLAnchorElement if you ever want <a> support,
+// but for now button is simpler and more appropriate for this use-case.
+
+export default function Button({
   variant = 'slayer',
   size = 'medium',
+  mode,
+  href,
   className,
   children,
-  ...props
-}: Props<C>) {
-  const Component = as || 'button';
+  onClick,
+  ...restProps
+}: Props) {
+  const router = useRouter();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Run any custom onClick passed from parent
+    if (onClick) {
+      onClick(e);
+    }
+
+    // If this is a mode-selection button
+    if (mode) {
+      Cookies.set('ds_mode', mode, {
+        expires: 30,
+        path: '/',
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+      });
+
+      router.push(`/${mode}`);
+
+      // Prevent any default behavior (though unlikely on <button>)
+      e.preventDefault();
+    }
+  };
 
   return (
-    <Component
+    <button
+      type="button"
       className={clsx(
         styles.btn,
         styles[`variant--${variant}`],
         styles[`size--${size}`],
         className
       )}
-      {...props}
+      onClick={handleClick}
+      {...restProps}
     >
       {children}
-    </Component>
+    </button>
   );
 }
