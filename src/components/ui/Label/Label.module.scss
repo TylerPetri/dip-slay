@@ -1,0 +1,10 @@
+@use '@/styles/abstracts' as *;
+
+.label {
+  display: block;
+  font-size: var(--type-sm);
+  font-weight: var(--font-medium);
+  color: white;
+  opacity: 0.9;
+  margin-bottom: var(--space-05);
+}

@@ -1,0 +1,87 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/components/button' as btn;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-modal-backdrop);
+  @include flex-center;
+}
+
+.modal {
+  position: relative;
+  width: 90%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  padding: var(--space-3xl);
+  color: white;
+  animation: fade-in 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  opacity: 0.7;
+  &:hover { opacity: 1; }
+}
+
+.title {
+  font-size: var(--type-2xl);
+  font-weight: var(--font-black);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  background: linear-gradient(90deg, var(--watcher-accent), var(--slayer-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(white, 0.15);
+
+  .tab {
+    flex: 1;
+    padding: var(--space-lg);
+    background: none;
+    border: none;
+    color: white;
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.active {
+      color: var(--watcher-accent);
+      border-bottom: 3px solid var(--watcher-accent);
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.submit {
+  margin-top: var(--space-xl);
+}

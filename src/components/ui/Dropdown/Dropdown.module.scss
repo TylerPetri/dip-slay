@@ -1,0 +1,67 @@
+@use '@/styles/abstracts' as *;
+@use '@/styles/utilities/transitions' as trans;
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  margin-top: var(--space-xs);
+  min-width: 180px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px) saturate(140%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  z-index: var(--z-dropdown);
+  overflow: hidden;
+  animation: fade-in 0.2s ease, slide-down 0.2s ease;
+
+  &.alignLeft {
+    left: 0;
+  }
+
+  &.alignRight {
+    right: 0;
+  }
+
+  &.widthTrigger {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+// Optional: menu item styles (can be used by children)
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-xl);
+  color: white;
+  font-size: var(--type-base);
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(white, 0.1);
+  }
+
+  &.destructive {
+    color: var(--color-error);
+    &:hover {
+      background: rgba(var(--color-error), 0.15);
+    }
+  }
+}

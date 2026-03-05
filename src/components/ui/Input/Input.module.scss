@@ -1,0 +1,27 @@
+@use '@/styles/abstracts' as *;
+
+.input {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(white, 0.08);
+  border: 1px solid rgba(white, 0.18);
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: var(--type-base);
+  transition: all 0.2s;
+
+  &::placeholder {
+    color: rgba(white, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent), 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

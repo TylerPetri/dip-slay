@@ -3,7 +3,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 
 import "@/styles/main.scss";
+import ClientWrapper from "@/components/layout/ClientWrapper";
 import Header from "@/components/layout/Header/Header";
+import QueryProvider from "@/providers/QueryProvider";
 
 type Props = {
   children: React.ReactNode;
@@ -19,8 +21,6 @@ export const metadata: Metadata = {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
-  // Optional: Validate locale (prevents invalid /[locale] from rendering)
-  // You can use your list of supported locales
   const supportedLocales = ["en", "fr"];
   if (!supportedLocales.includes(locale)) {
     notFound();
@@ -29,17 +29,19 @@ export default async function LocaleLayout({ children, params }: Props) {
   let messages;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          {children}
-        </NextIntlClientProvider>
+        <QueryProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Header />
+            <ClientWrapper>{children}</ClientWrapper>
+          </NextIntlClientProvider>
+        </QueryProvider>
       </body>
     </html>
   );
