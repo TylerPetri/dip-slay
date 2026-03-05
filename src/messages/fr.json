@@ -4,35 +4,35 @@
       "heading": "Catégories en vedette",
       "subheading": "Plonge dans les batailles de trempettes les plus hot du moment — choisis ton arène et commence à regarder ou à slayer",
       "categories": {
-        "gameNight": {
+        "game-night": {
           "title": "Game Night",
           "description": "Trempettes classiques pour des sessions de jeu interminables"
         },
-        "deepFried": {
+        "deep-fried": {
           "title": "Deep Fried",
           "description": "Favoris frits croustillants et ultra-indulgents"
         },
-        "crackersDips": {
+        "crackers-dips": {
           "title": "Crackers & Dips",
           "description": "Combinaisons simples et partageables avec craquelins"
         },
-        "spicyInferno": {
+        "spicy-inferno": {
           "title": "Spicy Inferno",
           "description": "Trempettes qui brûlent la langue et enflamment la compétition"
         },
-        "sweetSurprise": {
+        "sweet-surprise": {
           "title": "Sweet Surprise",
           "description": "Trempettes dessert qui surprennent agréablement"
         },
-        "quickBite": {
+        "quick-bite": {
           "title": "Quick Bite",
           "description": "Trempettes rapides, prêtes en quelques minutes"
         },
-        "comfortClassic": {
+        "comfort-classic": {
           "title": "Comfort Classic",
           "description": "Trempettes réconfortantes et nostalgiques"
         },
-        "experimentalWeird": {
+        "experimental-weird": {
           "title": "Experimental Weird",
           "description": "Créations folles et expérimentales qui étonnent"
         }
