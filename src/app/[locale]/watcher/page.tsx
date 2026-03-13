@@ -6,6 +6,7 @@ import clsx from "clsx";
 import styles from "./watcher.module.scss";
 import Button from "@/components/ui/Button/Button";
 import { useAuthStore } from "@/stores/authStore";
+import LiveDot from "@/components/ui/LiveDot/LiveDot";
 
 // Placeholder data — replace with Supabase + realtime later
 const liveDuels = [
@@ -62,9 +63,14 @@ export default function WatcherPage() {
       {/* Compact Hero */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>{t("arenaTitle")}</h1>
-          <p className={clsx(styles.liveCount, styles.pulsing)}>
-            {totalLive} {t("liveDuels")}
+          {!user && <h1 className={styles.heroTitle}>{t("arenaTitle")}</h1>}
+          <p className={styles.liveCount}>
+            <LiveDot
+              count={totalLive}
+              label={t("liveDuels")}
+              pulsing
+              className={styles.heroLive}
+            />
           </p>
           {!user && (
             <Button

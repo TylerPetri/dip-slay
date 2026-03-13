@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import styles from "./slayer.module.scss";
 import Button from "@/components/ui/Button/Button";
+import { useUIStore } from "@/stores/uiStore";
 
 // Placeholder data – replace with Supabase later
 const userStats = {
@@ -17,9 +18,36 @@ const userStats = {
 };
 
 const userDips = [
-  { id: 1, name: "Inferno Queso Bomb", category: "Spicy Inferno", wins: 14, losses: 3, rating: 4.8, ready: true, image: "/images/dips/queso.jpg" },
-  { id: 2, name: "Midnight Truffle Gouda Melt", category: "Comfort Classic", wins: 8, losses: 5, rating: 4.2, ready: true, image: "/images/dips/truffle.jpg" },
-  { id: 3, name: "Experimental Ghost Pepper Caviar", category: "Experimental Weird", wins: 2, losses: 1, rating: 3.9, ready: false, image: "/images/dips/caviar.jpg" },
+  {
+    id: 1,
+    name: "Inferno Queso Bomb",
+    category: "Spicy Inferno",
+    wins: 14,
+    losses: 3,
+    rating: 4.8,
+    ready: true,
+    image: "/images/dips/queso.jpg",
+  },
+  {
+    id: 2,
+    name: "Midnight Truffle Gouda Melt",
+    category: "Comfort Classic",
+    wins: 8,
+    losses: 5,
+    rating: 4.2,
+    ready: true,
+    image: "/images/dips/truffle.jpg",
+  },
+  {
+    id: 3,
+    name: "Experimental Ghost Pepper Caviar",
+    category: "Experimental Weird",
+    wins: 2,
+    losses: 1,
+    rating: 3.9,
+    ready: false,
+    image: "/images/dips/caviar.jpg",
+  },
 ];
 
 const queueTeaser = {
@@ -30,6 +58,7 @@ const queueTeaser = {
 
 export default function SlayPage() {
   const t = useTranslations("Slay");
+  const { openAuthModal } = useUIStore();
 
   const hasDips = userDips.length > 0;
 
@@ -44,7 +73,8 @@ export default function SlayPage() {
           </div>
           <h1 className={styles.heroTitle}>{t("slayerMode")}</h1>
           <p className={styles.heroSubtitle}>
-            {t("winRate")}: <strong>{userStats.winRate}%</strong> • {t("totalDuels")}: <strong>{userStats.totalDuels}</strong>
+            {t("winRate")}: <strong>{userStats.winRate}%</strong> •{" "}
+            {t("totalDuels")}: <strong>{userStats.totalDuels}</strong>
           </p>
         </div>
 
@@ -53,6 +83,7 @@ export default function SlayPage() {
           size="large"
           className={styles.createButton}
           href="/slay/create"
+          onClick={() => openAuthModal()}
         >
           {t("createDip")}
         </Button>
@@ -69,7 +100,13 @@ export default function SlayPage() {
             {hasDips ? (
               <div className={styles.dipGrid}>
                 {userDips.map((dip) => (
-                  <div key={dip.id} className={clsx(styles.dipCard, !dip.ready && styles.needsTweak)}>
+                  <div
+                    key={dip.id}
+                    className={clsx(
+                      styles.dipCard,
+                      !dip.ready && styles.needsTweak,
+                    )}
+                  >
                     <div className={styles.dipImageWrapper}>
                       {/* <Image src={dip.image} alt={dip.name} fill className={styles.dipImage} /> */}
                       <div className={styles.placeholderImage} />
@@ -83,8 +120,12 @@ export default function SlayPage() {
                       <h3 className={styles.dipName}>{dip.name}</h3>
                       <p className={styles.dipCategory}>{dip.category}</p>
                       <div className={styles.dipStats}>
-                        <span>W: <strong>{dip.wins}</strong></span>
-                        <span>L: <strong>{dip.losses}</strong></span>
+                        <span>
+                          W: <strong>{dip.wins}</strong>
+                        </span>
+                        <span>
+                          L: <strong>{dip.losses}</strong>
+                        </span>
                         <span className={styles.rating}>★ {dip.rating}</span>
                       </div>
                     </div>
@@ -104,17 +145,29 @@ export default function SlayPage() {
           {/* Queue Teaser */}
           <section className={clsx(styles.section, styles.queueSection)}>
             <h2 className={styles.sectionTitle}>{t("duelQueue")}</h2>
-            <div className={clsx(styles.queueCard, queueTeaser.pending > 0 && styles.pulsing)}>
+            <div
+              className={clsx(
+                styles.queueCard,
+                queueTeaser.pending > 0 && styles.pulsing,
+              )}
+            >
               <div className={styles.queueContent}>
                 <p className={styles.queuePending}>
-                  {t("pendingChallenges")}: <strong>{queueTeaser.pending}</strong>
+                  {t("pendingChallenges")}:{" "}
+                  <strong>{queueTeaser.pending}</strong>
                 </p>
                 {queueTeaser.pending > 0 && (
                   <p className={styles.nextOpponent}>
-                    {t("nextOpponent")}: <strong>{queueTeaser.nextOpponent}</strong> • {queueTeaser.timeLeft}
+                    {t("nextOpponent")}:{" "}
+                    <strong>{queueTeaser.nextOpponent}</strong> •{" "}
+                    {queueTeaser.timeLeft}
                   </p>
                 )}
-                <Button variant="slayer" size="large" className={styles.queueBtn}>
+                <Button
+                  variant="slayer"
+                  size="large"
+                  className={styles.queueBtn}
+                >
                   {t("joinQueue")}
                 </Button>
               </div>
@@ -139,7 +192,9 @@ export default function SlayPage() {
               </div>
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>{t("highestTrophies")}</span>
-                <span className={styles.statValue}>{userStats.highestTrophies}</span>
+                <span className={styles.statValue}>
+                  {userStats.highestTrophies}
+                </span>
               </div>
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>{t("winRate")}</span>
@@ -157,17 +212,30 @@ export default function SlayPage() {
               </div>
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>{t("threeCrownWins")}</span>
-                <span className={styles.statValue}>{userStats.threeCrownWins}</span>
+                <span className={styles.statValue}>
+                  {userStats.threeCrownWins}
+                </span>
               </div>
               <div className={styles.statRow}>
                 <span className={styles.statLabel}>{t("currentStreak")}</span>
-                <span className={clsx(styles.statValue, userStats.currentStreak > 0 && styles.streakHot)}>
-                  {userStats.currentStreak > 0 ? `+${userStats.currentStreak}` : userStats.currentStreak}
+                <span
+                  className={clsx(
+                    styles.statValue,
+                    userStats.currentStreak > 0 && styles.streakHot,
+                  )}
+                >
+                  {userStats.currentStreak > 0
+                    ? `+${userStats.currentStreak}`
+                    : userStats.currentStreak}
                 </span>
               </div>
             </div>
 
-            <Button variant="outline" size="medium" className={styles.viewFullStats}>
+            <Button
+              variant="outline"
+              size="medium"
+              className={styles.viewFullStats}
+            >
               {t("viewFullStats")}
             </Button>
           </div>

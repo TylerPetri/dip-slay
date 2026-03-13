@@ -12,16 +12,13 @@ type ButtonSize = 'small' | 'medium' | 'large';
 type Props = {
   variant?: ButtonVariant;
   size?: ButtonSize;
-  mode?: 'slayer' | 'watcher';           // triggers cookie + navigation
-  href?: string;                         // optional (for future <a> or prefetch hints)
+  mode?: 'slayer' | 'watcher';
+  href?: string; 
   children: React.ReactNode;
 } & Omit<
   ComponentPropsWithoutRef<'button'>,
-  'type' // we hardcode type="button" below
+  'type'
 >;
-
-// We could also extend HTMLAnchorElement if you ever want <a> support,
-// but for now button is simpler and more appropriate for this use-case.
 
 export default function Button({
   variant = 'slayer',
@@ -36,12 +33,10 @@ export default function Button({
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // Run any custom onClick passed from parent
     if (onClick) {
       onClick(e);
     }
 
-    // If this is a mode-selection button
     if (mode) {
       Cookies.set('ds_mode', mode, {
         expires: 30,
@@ -52,7 +47,6 @@ export default function Button({
 
       router.push(`/${mode}`);
 
-      // Prevent any default behavior (though unlikely on <button>)
       e.preventDefault();
     }
   };

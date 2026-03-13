@@ -18,9 +18,9 @@ export default function ToastContainer() {
             toast.variant === 'error' && styles.error,
             toast.variant === 'info' && styles.info
           )}
+          onClick={() => removeToast(toast.id)}
         >
           {toast.message}
-          <button onClick={() => removeToast(toast.id)}>×</button>
         </div>
       ))}
     </div>

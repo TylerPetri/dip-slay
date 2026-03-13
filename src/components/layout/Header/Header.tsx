@@ -7,7 +7,7 @@ import clsx from "clsx";
 import styles from "./Header.module.scss";
 import Button from "@/components/ui/Button/Button";
 import { useAuthStore } from "@/stores/authStore";
-import { supabase } from "@/lib/supabase";
+import Dropdown from "@/components/ui/Dropdown/Dropdown";
 
 export default function Header() {
   const router = useRouter();
@@ -40,7 +40,6 @@ export default function Header() {
     setMode(finalMode || null);
   }, [pathname]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -108,48 +107,43 @@ export default function Header() {
 
         {/* User dropdown (only when logged in) */}
         {user && (
-          <div className={styles.userDropdown} ref={dropdownRef}>
-            <button
-              className={styles.userTrigger}
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              aria-expanded={dropdownOpen}
-            >
-              <div className={styles.avatar}>
-                <span>{initials}</span>
+          <Dropdown
+            trigger={
+              <div className={styles.userTrigger}>
+                <div className={styles.avatar}>
+                  <span>
+                    {profile?.username?.slice(0, 2).toUpperCase() || "U"}
+                  </span>
+                </div>
+                <span className={styles.username}>
+                  {profile?.username || user.email?.split("@")[0] || "User"}
+                </span>
               </div>
-              <span className={styles.username}>
-                {profile?.username || user.email?.split("@")[0]}
-              </span>
-              <span className={styles.chevron}>▼</span>
+            }
+            align="right"
+            width="auto"
+          >
+            {/* Menu items */}
+            <button
+              className={styles.menuItem}
+              onClick={() => {
+                router.push("/profile"); // or wherever your profile lives
+              }}
+            >
+              Profile / Settings
             </button>
 
-            {dropdownOpen && (
-              <div className={styles.dropdownMenu}>
-                <button
-                  className={styles.menuItem}
-                  onClick={() => {
-                    // Placeholder for settings/profile page
-                    router.push("/profile");
-                    setDropdownOpen(false);
-                  }}
-                >
-                  Profile / Settings
-                </button>
+            <button className={styles.menuItem} onClick={handleSwitchMode}>
+              Switch to {oppositeMode === "slayer" ? "Slayer" : "Watcher"} Mode
+            </button>
 
-                <button className={styles.menuItem} onClick={handleSwitchMode}>
-                  Switch to {oppositeMode === "slayer" ? "Slayer" : "Watcher"}{" "}
-                  Mode
-                </button>
-
-                <button
-                  className={clsx(styles.menuItem, styles.logoutItem)}
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </div>
-            )}
-          </div>
+            <button
+              className={clsx(styles.menuItem, styles.destructive)}
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </Dropdown>
         )}
       </div>
     </header>

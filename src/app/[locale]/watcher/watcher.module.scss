@@ -304,3 +304,10 @@
 .pulsing {
   animation: pulse 4s infinite ease-in-out;
 }
+
+.heroLive {
+  font-size: var(--type-xl);
+  font-weight: var(--font-extrabold);
+  color: var(--watcher-accent);
+  text-shadow: 0 0 12px rgba(var(--watcher-accent), 0.6);
+}
